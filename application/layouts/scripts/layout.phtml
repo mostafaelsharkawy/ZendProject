@@ -1,0 +1,28 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle() ?>
+<?php echo $this->headLink() ?>
+<?php echo $this->headScript() ?>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">My First blog</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">List posts</a></li>
+      <li><a href="<?php echo $this->baseUrl()?>/users/login">login</a></li>
+      <li><a href="<?php echo $this->baseUrl()?>/users/logout">logout</a></li> 
+    </ul>
+  </div>
+</nav>
+
+<?php echo $this->layout()->content;
+
+ ?>
+ 
+ </body>
+ </html>
