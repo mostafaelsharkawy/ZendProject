@@ -1,0 +1,12 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Categories</b> and script/action name <b>index</b></p>
+</div>
+<?php
+	foreach ($this->categories as $category){
+	echo "<label> ID: </label>".$category['id_cato'].'<br />';
+	echo "<label> Category: </label>".$category['category'].'<br />';
+	echo str_repeat('*', 100).'<br />';
+	}
+
+?>

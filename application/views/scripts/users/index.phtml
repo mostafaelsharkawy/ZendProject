@@ -1,0 +1,12 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Users</b> and script/action name <b>index</b></p>
+</div>
+<?php
+	foreach ($this->users as $user){
+	echo "<label> ID: </label>".$user['id_user'].'<br />';
+	echo "<label> email: </label>".$user['email'].'<br />';
+	echo str_repeat('*', 100).'<br />';
+	}
+
+?>
