@@ -1,4 +1,16 @@
+<h1>Users Listing </h1>
 <br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Users</b> and script/action name <b>index</b></p>
-</div>
+
+<?php
+	//echo $this->x;
+	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
+	foreach ($this->users as $user){
+	echo "<label> ID: </label>".$user['id'].'<br />';
+	echo "<label> Email: </label>".$user['username'].'<br />';
+	echo "<label> Password: </label>".$user['password'].'<br />';
+	echo "<a href='".$this->baseUrl()."/users/edit/id/".$user['id']."'> Edit </a> "."<a href='".$this->baseUrl()."/users/delete/id/".$user['id']."'> Delete </a> <br />";
+	echo str_repeat('*', 100).'<br />';
+	}
+
+?>
+
