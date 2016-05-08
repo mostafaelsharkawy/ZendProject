@@ -1,14 +1,9 @@
 <?php
 
 class UsersController extends Zend_Controller_Action {
-
-<<<<<<< HEAD
-    public function init() {
-=======
     public function init()
     {
     	// $this->_helper->layout->setLayout('fronEnd');
->>>>>>> 3c75e697e26f3ff5bed53132786c3c92aee47620
         /* Initialize action controller here */
         $this->model = new Application_Model_DbTable_User();
         //authenticated or not
@@ -18,17 +13,9 @@ class UsersController extends Zend_Controller_Action {
         //}
     }
 
-<<<<<<< HEAD
     public function indexAction() {
         $this->view->users = $this->model->listusers();
-=======
-    public function indexAction()
-    {
-    	// $this->_helper->layout->setLayout('backEnd');
-        // action body
->>>>>>> 3c75e697e26f3ff5bed53132786c3c92aee47620
     }
-
     public function deleteAction() {
         $id = $this->getRequest()->getParam('id');
         if ($this->model->deleteuser($id)) {

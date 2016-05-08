@@ -2,13 +2,11 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
-<<<<<<< HEAD
 	//session for auth user
 	protected function _initSession(){
 		Zend_Session::start();
 		$session = new Zend_Session_Namespace( 'Zend_Auth' );
 	}
-=======
 
 	protected function _initPlaceholders() {
         $this->bootstrap('View');
@@ -44,6 +42,5 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
    }
->>>>>>> 3c75e697e26f3ff5bed53132786c3c92aee47620
 
 }
