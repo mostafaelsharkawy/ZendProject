@@ -36,7 +36,7 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 	}
 	function addCourses($coursesInfo){
 		$row = $this->createRow();
-		$row->content = $coursesInfo['content'];
+		$row->title = $coursesInfo['title'];
 		$row->user_id = $coursesInfo['user_id'];
 		$row->parent_id = $coursesInfo['parent_id'];
 		return $row->save();

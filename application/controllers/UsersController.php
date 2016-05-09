@@ -1,5 +1,6 @@
 <?php
-
+require_once 'Zend/Mail.php';
+require_once 'Zend/Mail/Transport/Smtp.php';
 class UsersController extends Zend_Controller_Action {
     public function init()
     {
@@ -11,6 +12,7 @@ class UsersController extends Zend_Controller_Action {
         //if(!$authorization->hasIdentity()) {
         //$this->redirect('users/login');
         //}
+        
     }
 
     public function indexAction() {
@@ -39,6 +41,7 @@ class UsersController extends Zend_Controller_Action {
         $this->view->form = $form;
     }
 
+    #registeration 
     public function addAction() {
 
         $form = new Application_Form_User();
@@ -47,6 +50,23 @@ class UsersController extends Zend_Controller_Action {
                 $data = $form->getValues();
 
                 if($this->model->addUser($data)){
+                     
+                  /*  $tr = new Zend_Mail_Transport_Smtp('smtp.example.com',
+                    array('auth' => 'login',
+                        'auth'     => 'login',
+                        'username' => 'Zend.project.ti@gmail.com',
+                        'password' => 'itiiti2016',
+                        'port'     => '587',
+                        'ssl'      => 'tls',
+                             ));
+                    Zend_Mail::setDefaultTransport($tr);
+                    $mail = new Zend_Mail();
+                    $mail->setBodyText('you are welcome in our website ... your username : ');
+                    $mail->setFrom('Zend.project.ti@gmail.com', 'Some Sender');
+                    $mail->addTo($this->getRequest()->getParam('email'), 'Some Recipient');
+                    $mail->setSubject('Info');
+                    $mail->send();
+                    */
                     $this->redirect('users/index');
                 }
             }
@@ -57,7 +77,7 @@ class UsersController extends Zend_Controller_Action {
     public function loginAction() {
         $authorization = Zend_Auth::getInstance();
         if ($authorization->hasIdentity()) {
-            $this->redirect('posts/index');
+            $this->redirect('users/index');
         }
         $form = new Application_Form_User();
 
@@ -79,7 +99,7 @@ class UsersController extends Zend_Controller_Action {
                 $storage = $auth->getStorage();
                 $storage->write($authAdapter->getResultRowObject(array('id', 'username')));
                 //$authorization->username=$username;
-                $this->redirect('posts/index');
+                $this->redirect('users/index');
             } else {
                 $this->redirect('users/login');
             }

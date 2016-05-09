@@ -27,7 +27,8 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 		$row->email = $userInfo['email'];
 		$row->gender = $userInfo['gender'];
 		$row->country = $userInfo['country'];
-		$row->is_admin = '0';
+		$row->signature = $userInfo['signature'];
+		$row->is_Admin = '0';
 		$row->is_Banned = '0';
 
 	return $row->save();
