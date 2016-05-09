@@ -4,8 +4,7 @@ class Application_Form_User extends Zend_Form
 {
 
     public function init()
-    {
-	
+    {	
         /* Form Elements & Other Definitions Here ... */
         $username = new Zend_Form_Element_Text('username');
 		$username->setRequired();
@@ -38,16 +37,16 @@ class Application_Form_User extends Zend_Form
 		$password->addValidator(new Zend_Validate_StringLength(array('min'=>5, 'max'=>8)));
 
 		$gender = new Zend_Form_Element_Radio('gender');
-	    $gender->setLabel('What is your gender ?');
-	    $gender->addMultiOption('Male','Male');
+                $gender->setLabel('What is your gender ?');
+                $gender->addMultiOption('Male','Male');
 		$gender->addMultiOption('Female','Female');
 		$gender->setAttrib('class', 'radio radio-inline');
 
 		$country = new Zend_Form_Element_Select('country');
-		$country->addMultiOption(0, 'Please select...');
-		$country->addMultiOption(Cairo, 'Cairo');
-		$country->addMultiOption(Mansoura, 'Mansoura');
-		$country->addMultiOption(Dammietta, 'Dammietta');;
+		$country->addMultiOption(0,'Please select...');
+		$country->addMultiOption('Cairo', 'Cairo');
+		$country->addMultiOption('Mansoura', 'Mansoura');
+		$country->addMultiOption('Dammietta', 'Dammietta');;
 		$country->setAttrib('class', 'form-control');
 
 		$signature = new Zend_Form_Element_Text('signature');
@@ -57,9 +56,19 @@ class Application_Form_User extends Zend_Form
 		$submit = new Zend_Form_Element_Submit('submit');
 		$submit->setAttrib('class', 'btn btn-primary');
 		$this->setAttrib('class', 'form-horizontal');
-		$this->addElements(array($id,$username,$email, $password,$gender,$country,$signature, $submit));
-
-
+                /*
+                $MTS = new Application_Model_DbTable_MaterialType();
+                $mtype = new Zend_Form_Element_Select('country');
+                $mtype->addMultiOption(0, 'Please select...');
+                foreach ($MTS->fetchAll() as $MT) {
+                    $mtype->addMultiOption($MT['id'], $MT['type']);
+                }*/
+                
+     
+                $photo = new Zend_Form_Element_File('photo');  
+                $photo->setLabel('Photo') ;
+                $photo->setDestination('/var/www/html/ZendProject/public/images/profile_images/');     
+		$this->addElements(array($id,$username,$email, $password,$gender,$country,$signature,$photo, $submit));
     }
 
 

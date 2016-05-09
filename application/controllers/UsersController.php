@@ -1,6 +1,4 @@
 <?php
-require_once 'Zend/Mail.php';
-require_once 'Zend/Mail/Transport/Smtp.php';
 class UsersController extends Zend_Controller_Action {
     public function init()
     {
@@ -29,22 +27,31 @@ class UsersController extends Zend_Controller_Action {
         $id = $this->getRequest()->getParam('id');
         $user = $this->model->getUserById($id);
         $form = new Application_Form_User();
+        $form->username->setValidators(array());
+        $form->email->setValidators(array());
+        $form->removeElement('password');
         $form->populate($user[0]);
         if ($this->getRequest()->isPost()) {
-            if ($form->isValid($this->getRequest()->getParams())) {
-                $data = $form->getValues();
-
-                $this->model->editUser($id, $data);
-                $this->redirect('users/index');
+            if($form->isValid($this->getRequest()->getParams())){
+            $data = $form->getValues();
+            if($data['photo'] == "")
+            {
+                $data['photo'] = $user[0]['photo'];
             }
+            $this->model->editUser($id, $data);
+            $this->redirect('users/index');
+            }
+            
         }
         $this->view->form = $form;
+        $this->view->photo=$user[0]['photo'];
     }
 
     #registeration 
     public function addAction() {
 
         $form = new Application_Form_User();
+        $form->removeElement('photo');
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
@@ -52,21 +59,22 @@ class UsersController extends Zend_Controller_Action {
                 if($this->model->addUser($data)){
                      
                   /*  $tr = new Zend_Mail_Transport_Smtp('smtp.example.com',
-                    array('auth' => 'login',
-                        'auth'     => 'login',
+                    array(
+                        'auth' => 'login',
                         'username' => 'Zend.project.ti@gmail.com',
                         'password' => 'itiiti2016',
+                        'host' => 'smtp.gmail.com',
                         'port'     => '587',
                         'ssl'      => 'tls',
                              ));
-                    Zend_Mail::setDefaultTransport($tr);
+                   // Zend_Mail::setDefaultTransport($tr);
                     $mail = new Zend_Mail();
                     $mail->setBodyText('you are welcome in our website ... your username : ');
-                    $mail->setFrom('Zend.project.ti@gmail.com', 'Some Sender');
-                    $mail->addTo($this->getRequest()->getParam('email'), 'Some Recipient');
+                    $mail->setFrom('Zend.project.ti@gmail.com');
+                    $mail->addTo($this->getRequest()->getParam('email'));
                     $mail->setSubject('Info');
                     $mail->send();
-                    */
+                   */
                     $this->redirect('users/index');
                 }
             }
@@ -108,6 +116,12 @@ class UsersController extends Zend_Controller_Action {
     }
 
     public function logoutAction() {
+        $auth = Zend_Auth::getInstance();
+        $auth->clearIdentity();
+        $this->redirect('users/login');
+    }
+    
+    public function uploadAction() {
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
         $this->redirect('users/login');
