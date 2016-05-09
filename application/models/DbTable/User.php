@@ -15,11 +15,11 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 	function editUser($id,$userInfo){
 		$this->update($userInfo, "id=$id");
 	}
-	
 
 	function deleteUser($id){
 		return $this->delete('id='.$id);
 	}
+	
 	function addUser($userInfo){
 		$row = $this->createRow();
 		$row->username = $userInfo['username'];

@@ -4,6 +4,12 @@ class Application_Model_DbTable_Material extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'materials';
+
+    function getAllMaterials()
+    {
+    	return $this->fetchAll()->toArray();
+    }
+
     function getMaterials($course_id){
 		return $this->fetchAll($this->select()->where('course_id=?',$course_id));
 	}

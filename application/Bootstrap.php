@@ -24,7 +24,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		// $view->headLink()->prependStylesheet('/ZendProject/public/css/sb-admin-rtl.css');
 		$view->headLink()->appendStylesheet('/ZendProject/public/css/plugins/morris.css');
 		$view->headLink()->appendStylesheet('/ZendProject/public/font-awesome/css/font-awesome.min.css');
-
 			// Set the initial JS to load:
 		// $view->headScript()->prependFile('/ZendProject/public/js/bootstrap.js');
 		$view->headScript()->prependFile('/ZendProject/public/js/bootstrap.min.js');
@@ -39,8 +38,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->headScript()->appendFile('/ZendProject/public/js/plugins/morris/morris.min.js');
 		$view->headScript()->appendFile('/ZendProject/public/js/plugins/morris/morris-data.js');
 		$view->headScript()->appendFile('/ZendProject/public/js/plugins/morris/raphael.min.js');
-
-
    }
 
 }
