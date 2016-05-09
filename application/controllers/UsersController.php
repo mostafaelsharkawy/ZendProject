@@ -39,6 +39,7 @@ class UsersController extends Zend_Controller_Action {
             }
         }
         $this->view->form = $form;
+        
     }
 
     public function addAction() {

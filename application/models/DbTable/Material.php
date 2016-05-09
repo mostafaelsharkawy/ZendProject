@@ -13,9 +13,13 @@ class Application_Model_DbTable_Material extends Zend_Db_Table_Abstract
     function getMaterials($course_id){
 		return $this->fetchAll($this->select()->where('course_id=?',$course_id));
 	}
+        
+        function getmaterialbyid($id) {
+            return $this->find($id)->toArray();
+        }
 
 	function editMaterial($id,$materialInfo){
-		$this->update($materialInfo, "id=$id");
+		$this->update($materialInfo, 'id='.$id);
 	}
 	
 	function deleteMaterial($id){
@@ -23,8 +27,8 @@ class Application_Model_DbTable_Material extends Zend_Db_Table_Abstract
 	}
 	function addMaterial($materialInfo){
 		$row = $this->createRow();
-		$row->title = $materialInfo['title'];
-		$row->user_id = $materialInfo['user_id'];
+                $row->title = $materialInfo['title'];
+		$row->user_id = 1;
 		$row->material_type_id = $materialInfo['material_type_id'];
 		$row->course_id = $materialInfo["course_id"];
 		$row->is_approved = $materialInfo['is_approved'];

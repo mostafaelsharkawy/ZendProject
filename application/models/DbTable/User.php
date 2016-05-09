@@ -4,7 +4,7 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'users';	
-
+    
 	function listUsers(){
 		return $this->fetchAll()->toArray();
 	}
@@ -29,7 +29,6 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 		$row->country = $userInfo['country'];
 		$row->is_admin = '0';
 		$row->is_Banned = '0';
-
 	return $row->save();
 	}
 
