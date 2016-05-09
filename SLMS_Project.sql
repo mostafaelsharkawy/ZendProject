@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 07, 2016 at 06:51 PM
+-- Generation Time: May 09, 2016 at 01:34 PM
 -- Server version: 5.6.28-0ubuntu0.15.10.1
 -- PHP Version: 5.6.11-1ubuntu3.3
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `photo` varchar(250) NOT NULL,
   `is_Admin` tinyint(1) NOT NULL,
   `is_Banned` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -112,7 +112,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `gender`, `country`, `signature`, `photo`, `is_Admin`, `is_Banned`) VALUES
 (1, 'yasmin', '', '', '', '', '', '', 0, 0),
-(2, 'samar', '', '', '', '', '', '', 0, 0);
+(2, 'samar', '', '', '', '', '', '', 0, 0),
+(3, 'ahmed', '827ccb0eea8a706c4c34a16891f84e7b', 'ahmed@gmail.com', 'Male', '1', '', '', 0, 0),
+(4, 'sherif', '827ccb0eea8a706c4c34a16891f84e7b', 'sherif@yahoo.com', 'Male', 'Mansoura', 'shreeeef', '', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -194,7 +196,7 @@ ALTER TABLE `material_types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --

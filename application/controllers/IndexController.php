@@ -18,8 +18,24 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
+    public function materialsAction()
+    {
+        // action body
+    }
+
+    public function showMaterialTypeAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

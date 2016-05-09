@@ -14,8 +14,10 @@ class UsersController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
+        // die "sss";
         $this->view->users = $this->model->listusers();
     }
+    
     public function deleteAction() {
         $id = $this->getRequest()->getParam('id');
         if ($this->model->deleteuser($id)) {
@@ -44,6 +46,7 @@ class UsersController extends Zend_Controller_Action {
             
         }
         $this->view->form = $form;
+
         $this->view->photo=$user[0]['photo'];
     }
 

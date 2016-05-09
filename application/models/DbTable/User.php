@@ -4,7 +4,7 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 {
 
     protected $_name = 'users';	
-
+    
 	function listUsers(){
 		return $this->fetchAll()->toArray();
 	}
@@ -15,11 +15,11 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 	function editUser($id,$userInfo){
             $this->update($userInfo, 'id='.$id);
 	}
-	
 
 	function deleteUser($id){
 		return $this->delete('id='.$id);
 	}
+	
 	function addUser($userInfo){
 		$row = $this->createRow();
 		$row->username = $userInfo['username'];
@@ -30,7 +30,6 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 		$row->signature = $userInfo['signature'];
 		$row->is_Admin = '0';
 		$row->is_Banned = '0';
-
 	return $row->save();
 	}
 
