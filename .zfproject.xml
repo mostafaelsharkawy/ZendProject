@@ -11,11 +11,21 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+
         <controllerFile controllerName="Requests">
           <actionMethod actionName="index"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="hide"/>
+
+        <controllerFile controllerName="Edit">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Comments">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
@@ -41,6 +51,7 @@
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
+
           <viewControllerScriptsDirectory forControllerName="Requests">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -52,6 +63,19 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Requests">
             <viewScriptFile forActionName="hide"/>
+
+          <viewControllerScriptsDirectory forControllerName="Edit">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Comments">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Comments">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Comments">
+            <viewScriptFile forActionName="delete"/>
+
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
