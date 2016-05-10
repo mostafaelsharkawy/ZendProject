@@ -1,0 +1,21 @@
+<h3>Hidden Request</h3>
+<?php
+    echo '<table class="table">';
+    echo '<tr>';
+    echo "<th> Title </th>";
+    echo "<th> Content </th>";
+    echo "<th> user_id </th>";
+    echo "<th> course_id </th>";
+    echo "<th> Hide </th>";
+    echo '</tr>';
+    foreach ($this->requests as $request){
+        echo '<tr><td>'.$request['title'].'</td>';
+        echo '<td>'.$request['content'].'</td>';
+        echo "<td><a  href='".$this->baseUrl()."/users/view/id/".$request['user_id']."'>".$request['username'].'</a></td>';
+        echo '<td>'.$request['courses_title'].'</td>';
+        echo "<td ><a class='btn btn-info' href='".$this->baseUrl()."/requests/show/id/".$request['id']."'>Show</a></td>";
+        echo "<td ><a class='btn btn-info' href='".$this->baseUrl()."/requests/delete/id/".$request['id']."'>Delete</a></td>";
+        echo '</tr>';
+    }
+
+?>

@@ -1,8 +1,6 @@
 .wrapper{
-	background-color:whitesmoke;
-	padding-top:10px;
-	padding-left:50px;
-	padding-right:50px;
+    background-color:whitesmoke;
+    padding-top:10px;
 }
 input[type="text"],input[type="password"]{
 	margin-top:3px;

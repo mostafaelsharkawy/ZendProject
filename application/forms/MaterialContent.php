@@ -5,7 +5,6 @@ class Application_Form_MaterialContent extends Zend_Form
 
     public function init()
     {
-	
         /* Form Elements & Other Definitions Here ... */
         $type = new Zend_Form_Element_Text('type');
         $type->setRequired();
