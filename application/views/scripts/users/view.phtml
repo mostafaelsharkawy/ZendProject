@@ -1,0 +1,14 @@
+
+<?php
+    echo '<tr>'.$this->user[0]['username'].'</tr>';
+    echo '<tr>'.$this->user[0]['email'].'</tr>';
+    echo '<tr>'.$this->user[0]['country'].'</tr>';
+    echo '<tr>'.$this->user[0]['gender'].'</tr>';
+    echo "<br /><img width='100' height='100' src='".$this->baseUrl()."/images/profile_images/".$this->user[0]['photo']."'/>";
+    echo "<td ><a class='btn btn-info' href='".$this->baseUrl()."/users/edit/id/".$this->user[0]['id']."'>Edit</a></td>";
+    
+    foreach ($this->comments as $comment) {
+        echo $comment['content'];
+        echo $comment['material_id'];
+}
+    ?>

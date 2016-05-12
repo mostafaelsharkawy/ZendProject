@@ -6,8 +6,8 @@ class Application_Form_Material extends Zend_Form {
 
         /* Form Elements & Other Definitions Here ... */
 
-        $title = new Zend_Form_Element_Text('title');
-        $title->setRequired();
+	$title = new Zend_Form_Element_Text('title');
+	$title->setRequired();
 //	$title->setLabel('Title');
         $title->setAttrib('class', 'form-control');
 

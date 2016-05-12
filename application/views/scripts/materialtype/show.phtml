@@ -11,9 +11,8 @@ echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/ad
 //	echo "<th> User_Id </th>";
         echo "<th> Actions </th>";
 	echo '</tr>';
-    foreach ($this->materials as $material){
-        
-//        echo '<tr><td>'.$material['id'].'</td>';
+
+    foreach ($this->materials as $material){ 
         echo '<td>'.$material['type'].'</td>';
 //        echo '<td>'.$material['user_id'].'</td>';
         echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."'> Delete </a></td>";

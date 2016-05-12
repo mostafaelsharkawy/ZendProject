@@ -1,8 +1,10 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Users</b> and script/action name <b>edit</b></p>
-</div>
+<div class="container">
+    <div class="wrapper">
 <?php 
-
-	echo $this->form;
+    $this->headLink()->appendStylesheet($this->baseUrl('css/main.css'));
+    echo $this->form;
+    echo "<br /><img width='100' height='100' src='".$this->baseUrl()."/images/profile_images/".$this->photo."'/>";
 ?>
+        
+    </div>
+</div>

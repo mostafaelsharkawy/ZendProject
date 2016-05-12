@@ -1,16 +1,30 @@
-<h1>Users Listing </h1>
-<br /><br />
 
 <?php
-	//echo $this->x;
-	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
-	foreach ($this->users as $user){
-	echo "<label> ID: </label>".$user['id'].'<br />';
-	echo "<label> Email: </label>".$user['username'].'<br />';
-	echo "<label> Password: </label>".$user['password'].'<br />';
-	echo "<a href='".$this->baseUrl()."/users/edit/id/".$user['id']."'> Edit </a> "."<a href='".$this->baseUrl()."/users/delete/id/".$user['id']."'> Delete </a> <br />";
-	echo str_repeat('*', 100).'<br />';
-	}
+        echo '<table class="table">';
+        echo '<tr>';
+	echo "<th> ID </th>";
+	echo "<th> userName </th>";
+	echo "<th> Email </th>";
+        echo "<th> Country </th>";
+        echo "<th> gender </th>";
+        echo "<th> Signature </th>";
+         echo "<th> Edit </th>";
+        echo "<th> Delete </th>";
+         echo "<th> is_Admin </th>";
+        echo "<th> is_Baned </th>";
+	echo '</tr>';
+        foreach ($this->users as $user){
+        echo '<tr><td>'.$user['id'].'</td>';
+         echo "<td><a  href='".$this->baseUrl()."/users/view/id/".$user['id']."'>".$user['username'].'</a></td>';
+
+        echo '<td>'.$user['email'].'</td>';
+        echo '<td>'.$user['country'].'</td>';
+        echo '<td>'.$user['gender'].'</td>';
+        echo '<td>'.$user['signature'].'</td>';
+        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/users/edit/id/".$user['id']."'> Edit </a></td><td><a class='btn btn-danger' href='".$this->baseUrl()."/users/delete/id/".$user['id']."'> Delete </a></td>";
+        echo "<td ><a class='btn btn-success' href='".$this->baseUrl()."/users/admin/id/".$user['id']."'>".$user['is_Admin']."</a></td>";
+        echo "<td ><a class='btn btn-info' href='".$this->baseUrl()."/users/banned/id/".$user['id']."'>".$user['is_Banned']."</a></td>";
+        echo '</tr>';
+    }
 
 ?>
-

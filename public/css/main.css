@@ -1,0 +1,13 @@
+.wrapper{
+    background-color:whitesmoke;
+    padding-top:10px;
+}
+input[type="text"],input[type="password"]{
+	margin-top:3px;
+	margin-bottom:3px;
+
+}
+label{
+	color:darkmagenta;
+	font-size:15px;
+}
