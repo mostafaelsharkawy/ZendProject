@@ -8,7 +8,7 @@ class UsersController extends Zend_Controller_Action {
         $this->_helper->layout->setLayout('layout');
         $this->model = new Application_Model_DbTable_User();
         $this->cmodel = new Application_Model_DbTable_Comment();
-       
+
         //authenticated or not
     }
 
@@ -106,27 +106,33 @@ class UsersController extends Zend_Controller_Action {
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
-
+#Zend.project.ti@gmail.com itiiti2016
                 if ($this->model->addUser($data)) {
+                    $config=array('auth' => 'login',
+                        'username' => 'blog.django.iti@gmail.com',
+                        'password' => 'adminadmin123',
+                        'port' => '587',
+                        'ssl' => 'tls');
+                    $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+                    Zend_Mail::setDefaultTransport($transport);
 
-                    /*  $tr = new Zend_Mail_Transport_Smtp('smtp.example.com',
-                      array(
-                      'auth' => 'login',
-                      'username' => 'Zend.project.ti@gmail.com',
-                      'password' => 'itiiti2016',
-                      'host' => 'smtp.gmail.com',
-                      'port'     => '587',
-                      'ssl'      => 'tls',
-                      ));
-                      // Zend_Mail::setDefaultTransport($tr);
-                      $mail = new Zend_Mail();
-                      $mail->setBodyText('you are welcome in our website ... your username : ');
-                      $mail->setFrom('Zend.project.ti@gmail.com');
-                      $mail->addTo($this->getRequest()->getParam('email'));
-                      $mail->setSubject('Info');
-                      $mail->send();
-                     */
-                    $this->redirect('users/index');
+
+                    $mail = new Zend_Mail();
+                    $mail->setBodyText('you are welcome in our website ... your username : ');
+                    $mail->setFrom('blog.django.iti@gmail.com', 'Elearning Website');
+                    echo $this->getRequest()->getParam('email');
+                    $mail->addTo($this->getRequest()->getParam('email'), $this->getRequest()->getParam('username'));
+                    $mail->setSubject('welcome');
+                    $sent = true;
+                    try{
+                        $mail->send($transport);
+                    }catch (Exception $e) {
+                        $sent = false;
+                    }
+                    if($sent){
+                        $this->redirect('users/login');
+                    }
+                   
                 }
             }
         }
@@ -176,7 +182,9 @@ class UsersController extends Zend_Controller_Action {
         $auth->clearIdentity();
         $this->redirect('users/login');
     }
+
 #show user profile 
+
     public function viewAction() {
         $id = $this->getRequest()->getParam('id');
         $this->view->user = $this->model->getUserById($id);

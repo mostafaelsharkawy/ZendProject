@@ -12,6 +12,7 @@ class CommentsController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $this->_helper->layout->setLayout('admin');
         $this->view->comments=  $this->model->listComments();
     }
 
