@@ -7,18 +7,16 @@ echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/MaterialContent
     echo '<table class="table">';
     echo '<tr>';
 	echo "<th> ID </th>";
-	echo "<th> title </th>";
-	echo "<th> Description </th>";
-//        echo "<th> Content_path </th>";
+        echo "<th> Content_path </th>";
         echo "<th> Actions </th>";
 	echo '</tr>';
     foreach ($this->materials as $material){
         
         echo '<tr><td>'.$material['id'].'</td>';
-        echo '<td>'.$material['title'].'</td>';
-        echo '<td>'.$material['description'].'</td>';
-//        echo '<td>'.$material['content_path'].'</td>';
-        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialcontent/delete/id/".$material['id']."'> Delete </a></td>";
+//        echo '<td>'.$material['title'].'</td>';
+//        echo '<td>'.$material['description'].'</td>';
+        echo '<td>'.$material['content_path'].'</td>';
+        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialcontent/delete/id/".$material['id']."'> Delete </a><a class='btn btn-primary' href='".$this->baseUrl()."/comments/show/id/".$material['id']."'> Comment </a></td>";
         echo '</tr>';
         
 	}

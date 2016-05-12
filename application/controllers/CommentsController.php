@@ -66,8 +66,19 @@ class CommentsController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    public function showAction()
+    {
+        // action body
+        $id = $this->getRequest()->getParam('id');
+//        echo $this->getRequest()->getParam('id');
+//        die("end");
+        $this->view->comments=  $this->model->getCommentsByMaterialId($id);
+    }
+
 
 }
+
+
 
 
 
