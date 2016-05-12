@@ -1,7 +1,9 @@
 <h1>Materials</h1>
 <hr>
+<a href="<?php echo $this->baseUrl();?>/materials/add/" class="btn btn-primary">Insert Material</a>
 <br/>
 <br/>
+
 <table class="table" >
  <tr>
         <th>Title</th>
@@ -11,10 +13,9 @@
 	foreach ($this->materials as $materials){
 //	echo "<label> ID: </label>".$materials['id'].'<br />';
 	echo "<tr><td>".$materials['title'].'</td>';
-	echo "<td><a href='".$this->baseUrl()."/materials/edit/id/".$materials['id']."' class='btn btn-primary'> Edit </a> "."<a href='".$this->baseUrl()."/materials/delete/id/".$materials['id']."' class='btn btn-danger'> Delete </a>   <a href='".$this->baseUrl()."/posts/thepost/id/".$materials['id']."' class='btn btn-primary'> Details </a></td></tr>";
+	echo "<td><a href='".$this->baseUrl()."/materials/edit/id/".$materials['id']."' class='btn btn-primary'> Edit </a> "."<a href='".$this->baseUrl()."/materials/delete/id/".$materials['id']."' class='btn btn-danger'> Delete </a>   <a href='".$this->baseUrl()."/materialcontent/index/id/".$materials['id']."' class='btn btn-primary'> Details </a></td></tr>";
 //	echo str_repeat('*', 100).'<br />';
 	}
 
 ?>
 </table>
-<a href="<?php echo $this->baseUrl();?>/materials/add/" class="btn btn-primary">Insert Material</a>

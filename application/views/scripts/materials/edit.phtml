@@ -1,6 +1,6 @@
-<h1>Add Materials</h1>
+<h1>Edit Materials</h1>
 <hr>
-<form action="http://localhost/ZendProject/public/materials/edit/id/<?php echo $this->id; ?>" method="post">
+<form method="post">
 <table class="table">
     <tr>
         <td style="padding: 30px;">Title</td>
@@ -35,3 +35,26 @@
     </tr>
 </table>
 </form>
+<?php
+    echo "<a  href='".$this->baseUrl()."/Materialcontent/upload/id/".$this->id."'>Upload Files</a> <br />";
+?>
+
+<?php
+//
+////	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
+//    echo '<table class="table">';
+//    echo '<tr>';
+//        echo "<th> Content_path </th>";
+//        echo "<th> Actions </th>";
+//	echo '</tr>';
+//    foreach ($this->materials as $material){
+//        echo '<td>'.$material['content_path'].'</td>';
+//        echo "<td ><a class='btn btn-danger' href='".$this->baseUrl()."/Materialcontent/delete/id/".$material['id']."'> Delete </a></td>";
+//        echo '</tr>';
+//        
+//	}
+//    	echo "<a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/upload/'>Upload Data </a> <br />";
+//
+//?>
+
+

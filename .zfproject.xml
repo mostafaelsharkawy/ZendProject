@@ -22,7 +22,7 @@
         <modelFile modelName="User"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
-      <servicesDirectory enabled="false"/>
+      <!-- <servicesDirectory enabled="false"/> -->
       <viewsDirectory>
         <viewScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">

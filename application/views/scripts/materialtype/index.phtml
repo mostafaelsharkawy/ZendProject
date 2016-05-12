@@ -1,1 +1,23 @@
-<h1>materials</h1>
+<h1>Materials Type</h1>
+<br />
+
+<?php
+echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/add/'>Add MaterialType</a><br/><br/>";
+//	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
+    echo '<table class="table">';
+    echo '<tr>';
+	echo "<th> Type </th>";
+        echo "<th> Actions </th>";
+	echo '</tr>';
+    foreach ($this->materials as $material){
+        
+        echo '<td>'.$material['type'].'</td>';
+//        echo '<td>'.$material['content_path'].'</td>';
+        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."'> Delete </a></td>";
+        echo '</tr>';
+        
+	}
+
+?>
+
+
