@@ -15,8 +15,9 @@ class CommentsController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        $admin= $this->umodel->getUserById(Zend_Auth::getInstance()->getIdentity()->id);
-        $this->view->username=$admin[0]["username"];
+
+        $this->_helper->layout->setLayout('admin');
+
         $this->view->comments=  $this->model->listComments();
     }
 

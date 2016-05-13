@@ -26,16 +26,20 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
 
+
           <actionMethod actionName="add"/>
           <actionMethod actionName="show"/>
+
 
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
 
+
         <formFile formName="Comment"/>
 
         <formFile formName="Request"/>
+
 
       </formsDirectory>
       <layoutsDirectory>
@@ -86,12 +90,14 @@
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="delete"/>
 
+
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="show"/>
+
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

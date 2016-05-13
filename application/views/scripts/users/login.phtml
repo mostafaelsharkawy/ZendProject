@@ -1,8 +1,31 @@
-<br /><br />
-<h1>Login User </h1>
-
-<?php 
-	
-	echo $this->form;
-	//echo $this->errors;
+<?php
+echo $this->headLink()->appendStylesheet($this->baseUrl('css/main.css'));
 ?>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="<?php echo $this->baseUrl() ?>/users/login/" class="active" id="login-form-link">Login</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="<?php echo $this->baseUrl() ?>/users/add/" id="register-form-link">Register</a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?php
+                        echo $this->form;
+                        //echo $this->errors;
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
