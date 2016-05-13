@@ -39,8 +39,8 @@ class CommentsController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
-
-                if($this->model->addComment($data)){
+                $material_id=$this->getRequest()->getParam('id');
+                if($this->model->addComment($data,$material_id)){
                      
                   /*  $tr = new Zend_Mail_Transport_Smtp('smtp.example.com',
                     array(
@@ -59,10 +59,11 @@ class CommentsController extends Zend_Controller_Action
                     $mail->setSubject('Info');
                     $mail->send();
                    */
-                    $this->redirect('comments/index');
+                    $this->redirect('comments/show/id/'.$this->getRequest()->getParam('id'));
                 }
             }
         }
+        $this->view->material_id = $this->getRequest()->getParam('id');
         $this->view->form = $form;
     }
 

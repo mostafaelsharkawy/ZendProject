@@ -1,4 +1,27 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Comments</b> and script/action name <b>show</b></p>
-</div>
+<?php var_dump($this->comments);?><table border="2">
+    <tr>
+        <th style="padding:1em;">Comment id</th>
+        <th style="padding:1em;">Content</th>
+        <th style="padding:1em;">User id</th>
+        <th style="padding:1em;">EDIT</th>
+        <th style="padding:1em;">DELETE</th>
+        <th style="padding:1em;">add</th>
+    </tr>
+    <?php
+
+foreach ($this->comments as $comment) {
+    ?>
+    <tr>
+        <td><?php echo $comment['id'];?></td>
+        <td><?php echo $comment['content'];?></td>
+        <td><?php echo $comment['user_id'];?></td>
+        <td><a href="<?php echo $this->baseUrl().'/comments/edit/id/'.$comment['id'];?>">EDIT</a></td>
+        <td><a href="<?php echo $this->baseUrl().'/comments/delete/id/'.$comment['id'];?>">DELETE</a></td>
+        <td><a href="<?php echo $this->baseUrl().'/comments/add/id/'.$comment['material_id'];?>">add</a></td>
+    </tr>
+ <?php   
+}
+
+?>
+</table>
+

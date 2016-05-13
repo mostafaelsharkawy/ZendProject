@@ -8,7 +8,7 @@ class Application_Model_DbTable_Comment extends Zend_Db_Table_Abstract
 		return $this->fetchAll()->toArray();
 	}
 	function getCommentsByMaterialId($id){
-		return $this->fetchAll($this->select()->where('material_id=?',$id));
+		return $this->fetchAll($this->select()->where('material_id=?',$id))->toArray();
 	}
 
 	function editComment($id,$commentInfo){
@@ -18,11 +18,11 @@ class Application_Model_DbTable_Comment extends Zend_Db_Table_Abstract
 	function deleteComment($id){
 		return $this->delete('id='.$id);
 	}
-	function addComment($commentInfo){
+	function addComment($commentInfo,$id){
 		$row = $this->createRow();
 		$row->content = $commentInfo['content'];
 		$row->user_id = 1;//$commentInfo['user_id'];
-		$row->material_id = 3;//$commentInfo['material_id'];
+		$row->material_id = $id;
 		return $row->save();
 	}
 
