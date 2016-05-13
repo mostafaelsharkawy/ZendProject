@@ -46,16 +46,6 @@ class Application_Form_Material extends Zend_Form {
         $shown = new Zend_Form_Element_Checkbox('is_shown');
 //        $shown->setLabel('Shown');
         $shown->setAttrib('class', 'checkbox'); $file = new Zend_Form_Element_File('file');
-//        $file->setLabel('file Upload');
-//        $file->setDestination('/var/www/html/ZendProject2/application/upload');
-//        $file->setAttrib('id', 'file');
-//        $file->addValidator('Extension', FALSE, 'jpg,png,pdf,ppt,docx');
-//        $file->setAttrib('multiple', true);   // That's it
-        
-        //for input form
-//       
-
-
 
         $id = new Zend_Form_Element_Hidden('id');
 
