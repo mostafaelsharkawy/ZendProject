@@ -1,6 +1,6 @@
-<h1>Add Materials</h1>
+<h1>Edit Materials</h1>
 <hr>
-<form action="http://localhost/ZendProject/public/materials/edit/id/<?php echo $this->id; ?>" method="post">
+<form method="post">
 <table class="table">
     <tr>
         <td style="padding: 30px;">Title</td>
@@ -35,3 +35,6 @@
     </tr>
 </table>
 </form>
+<?php
+    echo "<a  href='".$this->baseUrl()."/Materialcontent/upload/id/".$this->id."'>Upload Files</a> <br />";
+?>

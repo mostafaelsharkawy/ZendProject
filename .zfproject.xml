@@ -43,6 +43,10 @@
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
+<<<<<<< HEAD
+      <!-- <servicesDirectory enabled="false"/> -->
+=======
+>>>>>>> 3015b7078c7ef3efb5994fc85e09eced99e1c875
       <viewsDirectory>
         <viewScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">

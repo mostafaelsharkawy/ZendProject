@@ -1,0 +1,16 @@
+<?php 
+//    echo $this->file;
+////videooooo
+echo '<video controls autoplay width="520" height="540">';
+echo '<source src="'.$this->video.'" type="video/avi">';
+echo '</video>';
+//die($this->video);
+
+/////////////////
+//
+$myfile = fopen($this->file, "r") or die("Unable to open file!");
+//            echo fread($myfile, filesize($this->file));
+//            echo fgets($myfile);
+//            fclose($myfile);
+//echo file_get_contents($this->file);
+?>
