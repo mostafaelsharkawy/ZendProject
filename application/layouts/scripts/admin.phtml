@@ -4,7 +4,11 @@
 
         <?php echo $this->headMeta(); ?>
         <?php echo $this->headTitle(); ?>
-        <?php echo $this->headLink(); ?>
+        <?php echo $this->headLink(); 
+        echo $this->headLink()->appendStylesheet($this->baseUrl('css/sb-admin.css'));
+        
+        ?>
+        
 
     </head>
     <body>
@@ -125,6 +129,7 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a href="<?php echo $this->baseUrl() ?>/users/logout/">Logout</a></li>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
