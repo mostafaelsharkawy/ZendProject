@@ -29,6 +29,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $view->headTitle('Admin Panel')->setSeparator(' :: ');
         // Set the initial stylesheet:
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap.css');
+        
         $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap.min.css');
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.css');
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.min.css');
@@ -74,4 +75,5 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $view->headScript()->appendFile('/ZendProject/public/js/plugins/morris/morris-data.js');
         $view->headScript()->appendFile('/ZendProject/public/js/plugins/morris/raphael.min.js');
     }
+
 }
