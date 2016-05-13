@@ -9,22 +9,49 @@ class CommentsController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
         $this->model = new Application_Model_DbTable_Comment () ;
+        $this->umodel = new Application_Model_DbTable_User () ;
     }
 
     public function indexAction()
     {
         // action body
+        $admin= $this->umodel->getUserById(Zend_Auth::getInstance()->getIdentity()->id);
+        $this->view->username=$admin[0]["username"];
         $this->view->comments=  $this->model->listComments();
     }
 
     public function editAction()
     {
         // action body
+        $authorization = Zend_Auth::getInstance();
+        if (!$authorization->hasIdentity()) {
+            $this->redirect('users/login');
+        }
+        
+        $id = $this->getRequest()->getParam('id');
+        $comment=$this->model->getCommentsById($id);
+        $user = $this->umodel->getUserById($id);
+        
+        $form = new Application_Form_Comment();
+        $form->populate($comment[0]);
+        if ($this->getRequest()->isPost()) {
+            if ($form->isValid($this->getRequest()->getParams())) {
+                $data = $form->getValues();
+                $this->model->editComment($id, $data);
+                $this->redirect("comments/show/id/".$comment[0]['material_id']);
+            }
+        }
+        $this->view->form = $form;
+        
     }
 
     public function deleteAction()
     {
         // action body
+        $authorization = Zend_Auth::getInstance();
+        if (!$authorization->hasIdentity()) {
+            $this->redirect('users/login');
+        }
         $id = $this->getRequest()->getParam('id');
         if ($this->model->deleteComment($id)) {
             $this->redirect('comments/index');
@@ -34,13 +61,18 @@ class CommentsController extends Zend_Controller_Action
     public function addAction()
     {
         // action body
+        $authorization = Zend_Auth::getInstance();
+        if (!$authorization->hasIdentity()) {
+            $this->redirect('users/login');
+        }
         $form = new Application_Form_Comment();
         
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
                 $material_id=$this->getRequest()->getParam('id');
-                if($this->model->addComment($data,$material_id)){
+                $user= Zend_Auth::getInstance()->getIdentity()->id;
+                if($this->model->addComment($data,$material_id,$user)){
                      
                   /*  $tr = new Zend_Mail_Transport_Smtp('smtp.example.com',
                     array(
@@ -70,10 +102,25 @@ class CommentsController extends Zend_Controller_Action
     public function showAction()
     {
         // action body
+        $authorization = Zend_Auth::getInstance();
+        if (!$authorization->hasIdentity()) {
+            $this->redirect('users/login');
+        }
+        $admin= $this->umodel->getUserById(Zend_Auth::getInstance()->getIdentity()->id);
+//        echo "<pre>";
+//        var_dump($admin);
+//        var_dump($admin[0]["is_Admin"]);
+//        echo "</pre>";
+//        die("end");
+
         $id = $this->getRequest()->getParam('id');
 //        echo $this->getRequest()->getParam('id');
 //        die("end");
+        $this->view->user=$admin[0];
+        $this->view->material_id = $id;
         $this->view->comments=  $this->model->getCommentsByMaterialId($id);
+
+        
     }
 
 

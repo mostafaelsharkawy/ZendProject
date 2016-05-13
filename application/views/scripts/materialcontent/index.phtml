@@ -14,7 +14,7 @@ foreach ($this->data as $data) {
 
 //        echo '<tr><td>'.$material['id'].'</td>';
     echo "<tr><td><a href='" . $this->baseUrl() . "/Materialcontent/display/content/" . $data['content_path'] ."'>".$data['content_path']."</a></td>";
-    echo "<td ><a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/delete/id/" . $data['id'] . "'> Delete </a><a class='btn btn-primary' href='" . $this->baseUrl() . "/Materialcontent/edit/id/" . $data['id'] . "'> Edit </a><a class='btn btn-primary' href='".$this->baseUrl()."/comments/show/id/".$material['id']."'> Comment </a>";
+    echo "<td ><a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/delete/id/" . $data['id'] . "'> Delete </a><a class='btn btn-primary' href='" . $this->baseUrl() . "/Materialcontent/edit/id/" . $data['id'] . "'> Edit </a><a class='btn btn-primary' href='".$this->baseUrl()."/comments/show/id/".$data['id']."'> Comment </a>";
     if ($data['is_locked'] == '1') {
         echo "<a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/unlock/id/" . $data['id'] ."/mid/".$data['material_id']. "'> Unlock </a>";
     } else {
