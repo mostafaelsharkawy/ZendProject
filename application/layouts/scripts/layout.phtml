@@ -1,0 +1,24 @@
+<?php echo $this->doctype(); ?>
+<html>
+    <head>
+
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+        <?php
+        echo $this->headLink();
+        //echo $this->headLink()->appendStylesheet($this->baseUrl('css/main.css'));
+        echo $this->headLink()->appendStylesheet($this->baseUrl('css/style.css'));
+        ?>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="wrapper">
+                <?php echo $this->layout()->content; ?>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+        </div>
+    </body>
+
+</html>
