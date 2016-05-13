@@ -11,6 +11,13 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+
+        <controllerFile controllerName="Requests">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="hide"/>
+
         <controllerFile controllerName="Edit">
           <actionMethod actionName="index"/>
         </controllerFile>
@@ -18,12 +25,18 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
+
           <actionMethod actionName="add"/>
           <actionMethod actionName="show"/>
+
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
+
         <formFile formName="Comment"/>
+
+        <formFile formName="Request"/>
+
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -32,9 +45,14 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="User"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Request"/>
+        </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
-      <servicesDirectory enabled="false"/>
+
+      <!-- <servicesDirectory enabled="false"/> -->
+
       <viewsDirectory>
         <viewScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
@@ -43,6 +61,19 @@
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
           </viewControllerScriptsDirectory>
+
+          <viewControllerScriptsDirectory forControllerName="Requests">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Requests">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Requests">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Requests">
+            <viewScriptFile forActionName="hide"/>
+
           <viewControllerScriptsDirectory forControllerName="Edit">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -54,6 +85,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="delete"/>
+
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="add"/>

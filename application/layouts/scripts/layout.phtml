@@ -7,9 +7,8 @@
         <?php echo $this->headLink(); ?>
        
     </head>
-<body>
 
-<body>
+<body style="background-color: white;">
 
     <div id="wrapper">
 
@@ -139,7 +138,7 @@
                         <a href="index.phtml"><i class="fa fa-fw fa-table"></i>Courses</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Materials <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="http://localhost/ZendProject2/public/materials/" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Materials <i class="fa fa-fw fa-caret-down"></i></a>
                      
                         <ul id="demo" class="collapse">
                             <li>
@@ -149,11 +148,19 @@
                                 <a href="#">Material Content</a>
                             </li>
                         </ul>
+                        
+                    </li>
+                    <li>
+                        <a href="http://localhost/ZendProject2/public/materialtype/index"><i class="fa fa-fw fa-table"></i>MaterialType</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/ZendProject2/public/materialcontent/index"><i class="fa fa-fw fa-table"></i>MaterialContent</a>
                     </li>
                     <li>
                         <a href="index.phtml"><i class="fa fa-fw fa-file"></i>Users</a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="<?php echo $this->baseUrl().'/comments/index';?>"><i class="fa fa-fw fa-dashboard"></i>Comments</a>
                         
                     </li>
@@ -162,23 +169,13 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-         	<?php echo $this->layout()->content; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+     <?php echo $this->layout()->content; ?>
+
+
+
             <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
+        <!-- /#page-wrapper -->
     
 </body>
 

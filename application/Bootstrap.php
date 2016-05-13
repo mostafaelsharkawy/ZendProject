@@ -17,13 +17,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headTitle('Admin Panel')->setSeparator(' :: ');
 			// Set the initial stylesheet:
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap.css');
-		$view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap.min.css');
+		$view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap.css');
 		// $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.css');
 		// $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.min.css');
 		$view->headLink()->appendStylesheet('/ZendProject/public/css/sb-admin.css');
 		// $view->headLink()->prependStylesheet('/ZendProject/public/css/sb-admin-rtl.css');
 		$view->headLink()->appendStylesheet('/ZendProject/public/css/plugins/morris.css');
-		$view->headLink()->appendStylesheet('/ZendProject/public/font-awesome/css/font-awesome.min.css');
+		$view->headLink()->appendStylesheet('/ZendProject/public/font-awesome/css/font-awesome.css');
 			// Set the initial JS to load:
 		// $view->headScript()->prependFile('/ZendProject/public/js/bootstrap.js');
                 $view->headScript()->appendFile('/ZendProject/public/js/jquery.js');

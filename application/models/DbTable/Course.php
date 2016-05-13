@@ -5,7 +5,7 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 
     protected $_name = 'courses';
     function getCategories(){
-		return $this->fetchAll($this->select()->where('parent_id=?',"NULL"));
+		return $this->fetchAll($this->select()->where('parent_id IS NULL'));
 	}
 
 	function editCategories($id,$categoryInfo){

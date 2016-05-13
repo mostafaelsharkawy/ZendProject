@@ -8,13 +8,14 @@ class MaterialtypeController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
 //        $this->model = new Application_Model_DbTable_Material();
+        $this->_helper->layout->setLayout('admin');
         $this->model1 = new Application_Model_DbTable_MaterialType();
     }
 
     public function indexAction()
     {
         // action body
-        $this->view->materials = $this->model->getAllMaterials();
+        $this->view->materials = $this->model1->getAllMaterialtypes();
         // $this->render('index');
     }
     public function showAction()
