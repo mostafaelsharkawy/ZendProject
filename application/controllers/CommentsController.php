@@ -7,6 +7,7 @@ class CommentsController extends Zend_Controller_Action
     {
         /* Initialize action controller here */
         $this->model=new Application_Model_DbTable_Comment();
+      //  $this->view->user_id=$authorization->getStorage()->read()->id;
     }
 
     public function indexAction()

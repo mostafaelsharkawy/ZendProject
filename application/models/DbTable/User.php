@@ -7,6 +7,10 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 	function listUsers(){
             return $this->fetchAll()->toArray();
 	}
+        function isAdmin($id){
+            return $this->fetchAll($this->select()->where('is_Admin=?','1'));
+        }
+        
         function makeAdmin($id,$admin){
             $data = array("is_Admin" => $admin );
             $this->update($data,'id='.$id);
