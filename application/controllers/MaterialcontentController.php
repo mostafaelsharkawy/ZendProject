@@ -5,7 +5,9 @@ class MaterialcontentController extends Zend_Controller_Action {
     public function init() {
         /* Initialize action controller here */
 
+
         $this->_helper->layout->setLayout('admin');
+
         $this->model = new Application_Model_DbTable_MaterialContent();
     }
 
@@ -62,6 +64,7 @@ class MaterialcontentController extends Zend_Controller_Action {
         $id = $this->getRequest()->getParam('id');
         $mtype = $this->getRequest()->getParam('mtype');
         $form = new Application_Form_MaterialContent();
+
         if ($form->isValid($this->getRequest()->getParams('id'))) {
             $data = $form->getValues();
             if ($this->model->addMaterialContent($data, $id,$mtype)) {
@@ -123,24 +126,7 @@ class MaterialcontentController extends Zend_Controller_Action {
         } elseif ($ext == 'avi') {
             $file = '/ZendProject/application/upload/' . $content;
             $this->view->video = $file;
+
         }
     }
-//    public function addAction() {
-//        $form = new Application_Form_InputForm();
-//        if ($this->getRequest()->isPost()) {
-//            if ($form->isValid($this->getRequest()->getParams())) {
-//                $data = $form->getValues();
-////                if ( $data['course_id'] != '0' || $data['user_id'] != '0') {
-////                    if ($this->model->addMaterial($data)) {
-////                        $this->redirect('materials/index');
-////                    }
-////                } else {
-////                    $this->redirect('materials/add');
-////                }
-////                
-//            }
-//        }
-//        $this->view->form = $form;
-//    }
-
 }
