@@ -4,7 +4,8 @@ class MaterialsController extends Zend_Controller_Action {
 
     public function init() {
         /* Initialize action controller here */
-        $this->_helper->layout->setLayout('admin');
+        $this->view->user_id=Zend_Auth::getInstance()->getStorage()->read()->id;
+         $this->_helper->layout->setLayout('admin');
         $this->model = new Application_Model_DbTable_Material();
         $this->model1 = new Application_Model_DbTable_MaterialType();
 

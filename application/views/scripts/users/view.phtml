@@ -1,14 +1,66 @@
 
 <?php
-    echo '<tr>'.$this->user[0]['username'].'</tr>';
-    echo '<tr>'.$this->user[0]['email'].'</tr>';
-    echo '<tr>'.$this->user[0]['country'].'</tr>';
-    echo '<tr>'.$this->user[0]['gender'].'</tr>';
-    echo "<br /><img width='100' height='100' src='".$this->baseUrl()."/images/profile_images/".$this->user[0]['photo']."'/>";
-    echo "<td ><a class='btn btn-info' href='".$this->baseUrl()."/users/edit/id/".$this->user[0]['id']."'>Edit</a></td>";
-    
-    foreach ($this->comments as $comment) {
-        echo $comment['content'];
-        echo $comment['material_id'];
-}
-    ?>
+echo $this->headLink()->appendStylesheet($this->baseUrl('css/user.css'));
+?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+            
+            <br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><?php echo $this->user[0]['username'] ?></h2>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> 
+                 
+                            <?php echo "<img alt='User Pic' class='img-circle img-responsive'  src='" . $this->baseUrl() . "/images/profile_images/" . $this->user[0]['photo'] . "'/>"; ?>
+                        </div>
+
+                        <div class=" col-md-9 col-lg-9 "> 
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td><?php echo $this->user[0]['email'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td><?php echo $this->user[0]['country'] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td><?php echo $this->user[0]['gender'] ?></td>
+                                    </tr>
+
+                                    <tr>
+                                    
+                                    <tr>
+                                        <td>Signature</td>
+                                        <td><?php echo $this->user[0]['signature'] ?></td>
+                                    </tr>
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+                        <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
