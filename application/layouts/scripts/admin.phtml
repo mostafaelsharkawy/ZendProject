@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">AdminPanel</a>
+                    <a class="navbar-brand" href="#">AdminPanel</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -135,7 +135,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="active">
-                            <a href="index.phtml"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                            <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li>
                             <a  href="<?php echo $this->baseUrl() ?>/categories/index/"><i class="fa fa-fw fa-bar-chart-o"></i>Categories</a>
@@ -144,28 +144,29 @@
                             <a  href="<?php echo $this->baseUrl() ?>/courses/index/"><i class="fa fa-fw fa-table"></i>Courses</a>
                         </li>
                         <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Materials <i class="fa fa-fw fa-caret-down"></i></a>
+                            <a href="<?php echo $this->baseUrl() ?>/materials" ><i class="fa fa-fw fa-arrows-v"></i> Materials </i></a>
 
-                            <ul id="demo" class="collapse">
-                                <li>
-                                    <a href="#">Material Type</a>
-                                </li>
-                                <li>
-                                    <a href="#">Material Content</a>
-                                </li>
-                            </ul>
+                           
+                        </li>
+                        <li>
+                            <a href="<?php echo $this->baseUrl() ?>/materialtype" ><i class="fa fa-fw fa-arrows-v"></i> Material Type</i></a>
+
+                           
                         </li>
                         <li>
                             <a href="<?php echo $this->baseUrl() ?>/users/index/"><i class="fa fa-fw fa-smile-o"></i>Users</a>
                         </li>
-                        <li>
+
+                                <li>
                                     <a href="<?php echo $this->baseUrl() ?>/requests/index/">All Requests</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo $this->baseUrl() ?>/requests/viewhide/">Hidden Request</a>
                                 </li>
+                
                         <li>
-                            <a href="<?php echo $this->baseUrl() ?>/comments/index/"><i class="fa fa-fw fa-dashboard"></i>Comments</a>
+                            <a href="<?php echo $this->baseUrl().'/comments/index';?>"><i class="fa fa-fw fa-dashboard"></i>Comments</a>
+
                         </li>
                     </ul>
                 </div>

@@ -39,6 +39,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
         $view->headLink()->prependStylesheet($view->baseUrl() . '/css/bootstrap.min.css');
         // $view->headLink()->prependStylesheet('html/ZendProject/public/css/bootstrap-rtl.css');
+        
+        // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.css');
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/bootstrap-rtl.min.css');
         //$view->headLink()->appendStylesheet('/ZendProject/public/css/sb-admin.css');
         // $view->headLink()->prependStylesheet('/ZendProject/public/css/sb-admin-rtl.css');
@@ -82,5 +84,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $view->headScript()->appendFile($view->baseUrl() . '/js/plugins/morris/morris-data.js');
         $view->headScript()->appendFile($view->baseUrl() . '/js/plugins/morris/raphael.min.js');
     }
+
 
 }

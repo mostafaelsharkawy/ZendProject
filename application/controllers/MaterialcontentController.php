@@ -2,10 +2,13 @@
 
 class MaterialcontentController extends Zend_Controller_Action {
 
-    public function init() {
-        /* Initialize action controller here */
+public function init() {
+/* Initialize action controller here */
 $this->view->user_id=Zend_Auth::getInstance()->getStorage()->read()->id;
+
+
         $this->_helper->layout->setLayout('admin');
+
         $this->model = new Application_Model_DbTable_MaterialContent();
     }
 
@@ -57,6 +60,7 @@ $this->view->user_id=Zend_Auth::getInstance()->getStorage()->read()->id;
     public function uploadAction() {
         $id = $this->getRequest()->getParam('id');
         $form = new Application_Form_InputForm();
+
         if ($form->isValid($this->getRequest()->getParams('id'))) {
             $data = $form->getValues();
             if ($this->model->addMaterialContent($data, $id)) {
@@ -145,6 +149,7 @@ $this->view->user_id=Zend_Auth::getInstance()->getStorage()->read()->id;
         } elseif ($ext == 'avi') {
             $file = '/ZendProject/application/upload/' . $content;
             $this->view->video = $file;
+
         }
     }
 

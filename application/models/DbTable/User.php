@@ -45,8 +45,12 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
             $row->is_Banned = '0';
             return $row->save();
 	}
-
-
+//        function isAdmin($id){
+//            $select=$this->select("is_Admin")
+//                    ->from('users')->where('id=', $id);
+//            return $this->fetchAll($select)->toArray();
+//	}
+        
 
 }
 

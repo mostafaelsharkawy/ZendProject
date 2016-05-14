@@ -10,7 +10,9 @@ class Application_Form_Request extends Zend_Form
         $title->setRequired();
         $title->setLabel('title')->setAttrib('class', 'form-label');
         $title->setAttrib('class', 'form-control');
+        
 
+        
         $content = new Zend_Form_Element_Textarea('content');
         $content->setRequired();
         

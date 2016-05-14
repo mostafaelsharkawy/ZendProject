@@ -114,7 +114,7 @@ class UsersController extends Zend_Controller_Action {
     public function addAction() {
 
         $form = new Application_Form_User();
-        $form->removeElement('photo');
+//        $form->removeElement('photo');
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
@@ -127,6 +127,7 @@ class UsersController extends Zend_Controller_Action {
                         'ssl' => 'tls');
                     $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
                     Zend_Mail::setDefaultTransport($transport);
+
 
 
                     $mail = new Zend_Mail();
@@ -147,6 +148,8 @@ class UsersController extends Zend_Controller_Action {
                     if ($sent) {
                         $this->redirect('users/login');
                     }
+                   
+
                 }
             }
         }
@@ -216,7 +219,9 @@ class UsersController extends Zend_Controller_Action {
         $this->redirect('users/login');
     }
 
+
 #show user profile 
+
 
     public function viewAction() {
         $this->_helper->layout->setLayout('new');

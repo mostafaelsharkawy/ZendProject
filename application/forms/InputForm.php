@@ -1,10 +1,6 @@
 <?php
-
 //use Zend\InputFilter\InputFilter;
-
-
 class Application_Form_InputForm extends Zend_Form {
-
     public function init() {
         $file = new Zend_Form_Element_File('file');
         $file->setLabel('file Upload');
@@ -23,7 +19,5 @@ class Application_Form_InputForm extends Zend_Form {
         
         $this->addElements(array($file, $submit));
     }
-
 }
-
 ?>
