@@ -1,0 +1,31 @@
+<h1>Edit Course</h1>
+<hr>
+<form method="post">
+<table class="table">
+    <tr>
+        <td style="padding: 30px;">Title</td>
+        <td><?php echo $this->form->title; ?></td>
+    </tr>
+
+    <tr>
+        <td style="padding: 30px;">Content</td>
+        <td><?php echo $this->form->content; ?></td>
+    </tr>
+    
+    <tr>
+        <td style="padding: 30px;">Category</td>
+        <td><?php echo $this->form->parent_id; ?></td>
+    </tr>
+    
+    <tr>
+        <td style="padding: 30px;">User</td>
+        <td><?php echo $this->form->user_id; ?></td>
+    </tr>
+    <tr>
+        <td colspan="2"><?php echo $this->form->submit; ?></td>
+    </tr>
+</table>
+</form>
+<?php
+    echo "<a  href='".$this->baseUrl()."/courses/upload/id/".$this->id."'>Upload Files</a> <br />";
+?>
