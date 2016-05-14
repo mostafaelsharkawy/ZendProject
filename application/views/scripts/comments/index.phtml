@@ -1,37 +1,25 @@
-
 <table class="table table-responsive table-bordered table-hover">
-
     <tr>
-        <th >Comment id</th>
-        <th >Content</th>
-        <th >User id</th>
-
+        <th>Comment id</th>
+        <th>Content</th>
+        <th>User id</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
     </tr>
     <?php
+           
 
 foreach ($this->comments as $comment) {
     ?>
     <tr>
-
-
-        <td><?php echo $comment['id'];?></td>
-        <td><?php echo $comment['content'];?></td>
-        <td><?php echo $comment["user_id"];?></td>
-
-
-    </tr>
-
-
-  <?php   
-
-
+        <td><?php echo $comment['id']?></td>
+        <td><?php echo $comment['content']?></td>
+        <td><?php echo $comment['user_id']?></td>
  
-
+        <td><a href=".<?php $this->baseUrl();?>/edit/id/<?php echo $comment['id']?>">EDIT</a></td>
+        <td><a href=".<?php $this->baseUrl();?>/delete/id/<?php echo $comment['id']?>">DELETE</a></td>
+    </tr>
+  <?php   
 }
-
-
-
-?>
-
+ ?>
 </table>
-

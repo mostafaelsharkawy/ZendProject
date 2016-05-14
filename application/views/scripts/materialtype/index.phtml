@@ -2,7 +2,8 @@
 <br />
 
 <?php
-echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/add/'>Add MaterialType</a><br/><br/>";
+//echo $this->id;
+echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/add/id/".$this->id."'>Add MaterialType</a><br/><br/>";
 //	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
     echo '<table class="table">';
     echo '<tr>';
@@ -13,7 +14,7 @@ echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/ad
         
         echo '<td>'.$material['type'].'</td>';
 //        echo '<td>'.$material['content_path'].'</td>';
-        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."'> Delete </a></td>";
+        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."/mid/".$this->id."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."/mid/".$this->id."'> Delete </a><a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/index/mtype/".$material['id']."/id/".$this->id."'> Show Material </a></td>";
         echo '</tr>';
         
 	}

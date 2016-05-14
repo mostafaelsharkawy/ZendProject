@@ -32,7 +32,7 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 
 	
 	function getCourses(){
-		return $this->fetchAll($this->select()->where('parent_id !=?',"NULL"));
+		return $this->fetchAll($this->select()->where('parent_id >?',"0"));
 	}
 
 	function getCourseByID($id) {

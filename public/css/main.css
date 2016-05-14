@@ -53,17 +53,6 @@ body {
 	box-shadow: none;
 	border-color: #ccc;
 }
-.btn-login {
-	background-color: #59B2E0;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #59B2E6;
-}
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
@@ -80,20 +69,18 @@ body {
 	color: #666;
 }
 
-.btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
+.btn{
+    width: 150px;
+    margin-left: 200px;
+    font-size: 17px;
 }
-.btn-register:hover,
-.btn-register:focus {
+.btn:hover,
+.btn:focus {
 	color: #fff;
 	background-color: #1CA347;
 	border-color: #1CA347;
+}
+label{
+    font-size: 15px;
+    color: #286090;
 }

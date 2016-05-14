@@ -8,6 +8,11 @@ class UsersController extends Zend_Controller_Action {
         $this->_helper->layout->setLayout('layout');
         $this->model = new Application_Model_DbTable_User();
         $this->cmodel = new Application_Model_DbTable_Comment();
+        $authorization = Zend_Auth::getInstance();
+        if ($authorization->hasIdentity()) {
+            $this->view->user_id = Zend_Auth::getInstance()->getStorage()->read()->id;
+        }
+
 
         //authenticated or not
     }
@@ -38,6 +43,9 @@ class UsersController extends Zend_Controller_Action {
         if (!$authorization->hasIdentity()) {
             $this->redirect('users/login');
         }
+        if (!Zend_Auth::getInstance()->getStorage()->read()->is_Admin == "1") {
+            $this->redirect('/');
+        }
         $id = $this->getRequest()->getParam('id');
         $user = $this->model->getUserById($id);
         $admin = $user[0]['is_Admin'];
@@ -57,6 +65,9 @@ class UsersController extends Zend_Controller_Action {
         if (!$authorization->hasIdentity()) {
             $this->redirect('users/login');
         }
+        if (!Zend_Auth::getInstance()->getStorage()->read()->is_Admin == "1") {
+            $this->redirect('/');
+        }
         $id = $this->getRequest()->getParam('id');
         $user = $this->model->getUserById($id);
         $is_ban = $user[0]['is_Banned'];
@@ -72,6 +83,7 @@ class UsersController extends Zend_Controller_Action {
     }
 
     function editAction() {
+        $this->_helper->layout->setLayout('new');
         $authorization = Zend_Auth::getInstance();
         if (!$authorization->hasIdentity()) {
             $this->redirect('users/login');
@@ -102,13 +114,13 @@ class UsersController extends Zend_Controller_Action {
     public function addAction() {
 
         $form = new Application_Form_User();
-//        $form->removeElement('photo');
+        $form->removeElement('photo');
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
 #Zend.project.ti@gmail.com itiiti2016
                 if ($this->model->addUser($data)) {
-                    $config=array('auth' => 'login',
+                    $config = array('auth' => 'login',
                         'username' => 'blog.django.iti@gmail.com',
                         'password' => 'adminadmin123',
                         'port' => '587',
@@ -117,24 +129,25 @@ class UsersController extends Zend_Controller_Action {
                     Zend_Mail::setDefaultTransport($transport);
 
 
-
                     $mail = new Zend_Mail();
-                    $mail->setBodyText('you are welcome in our website ... your username : ');
+                    $content = "you are welcome in our website ... your username :$this->getRequest()->getParam('username')
+                          , your signatura:  $this->getRequest()->getParam('signature'), your password :$this->getRequest()->getParam('password')";
+
+                    $mail->setBodyText($content);
                     $mail->setFrom('blog.django.iti@gmail.com', 'Elearning Website');
-                    echo $this->getRequest()->getParam('email');
+                    //   echo $this->getRequest()->getParam('email');
                     $mail->addTo($this->getRequest()->getParam('email'), $this->getRequest()->getParam('username'));
                     $mail->setSubject('welcome');
                     $sent = true;
-                    try{
+                    try {
                         $mail->send($transport);
-                    }catch (Exception $e) {
+                    } catch (Exception $e) {
                         $sent = false;
                     }
-                    if($sent){
+                    if ($sent) {
                         $this->redirect('users/login');
                     }
                    
-
                 }
             }
         }
@@ -169,9 +182,28 @@ class UsersController extends Zend_Controller_Action {
             if ($result->isValid()) {
                 $auth = Zend_Auth::getInstance();
                 $storage = $auth->getStorage();
-                $storage->write($authAdapter->getResultRowObject(array('id', 'username')));
+                $storage->write($authAdapter->getResultRowObject(array('id', 'username', 'is_Admin', 'is_Banned')));
                 //$authorization->username=$username;
-                $this->redirect('users/index');
+                /* if(Zend_Auth::getInstance()->getStorage()->read()->is_Banned == 1){
+                  $this->redirect('users/login');
+                  }
+                  if(Zend_Auth::getInstance()->getStorage()->read()->is_Admin == 1){
+                  $this->redirect('users/index');
+
+                  }  else {
+                  $this->redirect('/');
+                  }
+                 */
+                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Banned == "1") {
+                    $this->redirect('users/login');
+                }
+                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Admin == "1") {
+                    $this->redirect('/');
+                }  else {
+                     $this->redirect('users/index');
+                }
+               
+                //echo Zend_Auth::getInstance()->getStorage()->read()->is_Banned;
             } else {
                 $this->redirect('users/login');
             }
@@ -185,11 +217,10 @@ class UsersController extends Zend_Controller_Action {
         $this->redirect('users/login');
     }
 
-
 #show user profile 
 
-
     public function viewAction() {
+        $this->_helper->layout->setLayout('new');
         $id = $this->getRequest()->getParam('id');
         $this->view->user = $this->model->getUserById($id);
         $this->view->comments = $this->cmodel->getCommentsByUserId($id);
