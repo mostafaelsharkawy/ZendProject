@@ -114,7 +114,7 @@ class UsersController extends Zend_Controller_Action {
     public function addAction() {
 
         $form = new Application_Form_User();
-//        $form->removeElement('photo');
+        $form->removeElement('photo');
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
