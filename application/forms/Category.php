@@ -10,7 +10,8 @@ class Application_Form_Category extends Zend_Form
         $title->setRequired();
         $title->setLabel('title')->setAttrib('class', 'form-label');
         $title->setAttrib('class', 'form-control');
-        $type->addValidator(new Zend_Validate_Db_NoRecordExists(
+        $title->setAttrib('style', 'width:50%');
+        $title->addValidator(new Zend_Validate_Db_NoRecordExists(
                 array(
             'table' => 'courses',
             'field' => 'title'
@@ -18,22 +19,11 @@ class Application_Form_Category extends Zend_Form
         ));
 
 
-        $content = new Zend_Form_Element_Text('content');
-        $content->setRequired();
-        $content->setLabel('content');
-        $content->setAttrib('class', 'form-control');
-        $content->setAttrib('style', 'width:50%');
-        $content->addValidator(new Zend_Validate_Db_NoRecordExists(
-                array(
-            'table' => 'courses',
-            'field' => 'content'
-                )
-        ));
-
-
         $users = new Application_Model_DbTable_User();
         $userselect = new Zend_Form_Element_Select('user_id');
+        $userselect->setAttrib('class', 'form-control');
         $userselect->addMultiOption(0, 'Please select...');
+        $userselect->setRequired();
         foreach ($users->fetchAll() as $user) {
             $userselect->addMultiOption($user['id'], $user['username']);
         }
@@ -43,7 +33,7 @@ class Application_Form_Category extends Zend_Form
         $submit = new Zend_Form_Element_Submit('submit');
                 $submit->setAttrib('class', 'btn btn-primary');
                 $submit->setAttrib('style', 'margin-left:20%');
-        $this->addElements(array($id,$content, $submit));
+        $this->addElements(array($id, $title, $userselect, $submit));
     }
 
 

@@ -1,0 +1,20 @@
+<h1>Categries</h1>
+<hr>
+<a href="<?php echo $this->baseUrl();?>/category/add/" class="btn btn-primary">Insert Category</a>
+<br/>
+<br/>
+
+<table class="table" >
+ <tr>
+        <th>Title</th>
+        <th>Action</th>
+ </tr>
+<?php
+    foreach ($this->categories as $category){
+    echo "<tr><td>".$category['title'].'</td>';
+    echo "<td><a href='".$this->baseUrl()."/category/edit/id/".$category['id']."' class='btn btn-primary'> Edit </a> "."<a href='".$this->baseUrl()."/category/delete/id/".$category['id']."' class='btn btn-danger'> Delete </a> ";
+//  echo str_repeat('*', 100).'<br />';
+    }
+
+?>
+</table>

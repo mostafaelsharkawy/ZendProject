@@ -17,26 +17,14 @@ class Application_Form_Course extends Zend_Form
             'field' => 'title'
                 )
         ));
-
-
-        $content = new Zend_Form_Element_Text('content');
-        $content->setRequired();
-        $content->setLabel('content');
-        $content->setAttrib('class', 'form-control');
-        $content->setAttrib('style', 'width:50%');
-        $content->addValidator(new Zend_Validate_Db_NoRecordExists(
-                array(
-            'table' => 'courses',
-            'field' => 'content'
-                )
-        ));
-
         
         $categories = new Application_Model_DbTable_Course();
-        $categorySelect = new Zend_Form_Element_Select('category_id');
+        $categorySelect = new Zend_Form_Element_Select('parent_id');
+        $categorySelect->setAttrib('class', 'form-control');
         $categorySelect->addMultiOption(0, 'Please select...');
         $categorySelect->setAttrib('required','true');
-        foreach ($categories->fetchAll() as $category) {
+        $categorySelect->setRequired();
+        foreach ($categories->getCategories() as $category) {
             $categorySelect->addMultiOption($category['id'], $category['title']);
         }
         
@@ -45,7 +33,9 @@ class Application_Form_Course extends Zend_Form
 
         $users = new Application_Model_DbTable_User();
         $userselect = new Zend_Form_Element_Select('user_id');
+        $userselect->setAttrib('class', 'form-control');
         $userselect->addMultiOption(0, 'Please select...');
+        $userselect->setRequired();
         foreach ($users->fetchAll() as $user) {
             $userselect->addMultiOption($user['id'], $user['username']);
         }
@@ -55,9 +45,8 @@ class Application_Form_Course extends Zend_Form
 		$submit = new Zend_Form_Element_Submit('submit');
                 $submit->setAttrib('class', 'btn btn-primary');
                 $submit->setAttrib('style', 'margin-left:20%');
-		$this->addElements(array($id,$content, $submit));
 
-        $this->addElements(array($id, $title, $content, $categorySelect, $userselect, $submit));
+        $this->addElements(array($id, $title, $categorySelect, $userselect, $submit));
     }
 
 

@@ -26,7 +26,7 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 		$row = $this->createRow();
 		$row->title = $categoryInfo['title'];
 		$row->user_id = $categoryInfo['user_id'];
-		$row->parent_id = "NULL";
+		$row->parent_id = NULL;
 		return $row->save();
 	}
 
