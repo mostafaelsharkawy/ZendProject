@@ -14,8 +14,10 @@ class MaterialtypeController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $id = $this->getRequest()->getParam('id');
         // action body
         $this->view->materials = $this->model1->getAllMaterialtypes();
+        $this->view->id=$id;
         // $this->render('index');
     }
     public function showAction()

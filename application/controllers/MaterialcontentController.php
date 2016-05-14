@@ -12,8 +12,11 @@ class MaterialcontentController extends Zend_Controller_Action {
     public function indexAction() {
         // action body
         $id = $this->getRequest()->getParam('id');
-        $data = $this->model->getMaterialContentById($id);
+        $mtype = $this->getRequest()->getParam('mtype');
+        $data = $this->model->getMaterialContentById($id,$mtype);
         $this->view->data = $data;
+        $this->view->id=$id;
+        $this->view->mtype=$mtype;
     }
 
     //lock files of downloading
@@ -49,18 +52,20 @@ class MaterialcontentController extends Zend_Controller_Action {
 
     public function deleteAction() {
         $id = $this->getRequest()->getParam('id');
+        $mid = $this->getRequest()->getParam('mid');
         if ($this->model->deleteMaterialContent($id)) {
-            $this->redirect('materialcontent/index');
+            $this->redirect('materialcontent/index/id/' . $mid);
         }
     }
 
     public function uploadAction() {
         $id = $this->getRequest()->getParam('id');
-        $form = new Application_Form_InputForm();
+        $mtype = $this->getRequest()->getParam('mtype');
+        $form = new Application_Form_MaterialContent();
         if ($form->isValid($this->getRequest()->getParams('id'))) {
             $data = $form->getValues();
-            if ($this->model->addMaterialContent($data, $id)) {
-                
+            if ($this->model->addMaterialContent($data, $id,$mtype)) {
+//                echo 'hiii';
             }
         }
         $this->view->form = $form;
@@ -114,38 +119,28 @@ class MaterialcontentController extends Zend_Controller_Action {
         } elseif ($ext == 'docx') {
             $file = '/var/www/html/ZendProject/application/upload/' . $content;
             $this->view->file=$file;
-//            $mailMerge = new Zend_Service_LiveDocx_MailMerge();
-//
-//            $mailMerge->setUsername('yasmin')
-//                    ->setPassword('yasmina123');
-//
-//            $mailMerge->setLocalTemplate($file);
-//
-//            $mailMerge->assign('software', 'Magic Graphical Compression Suite v1.9')
-//                    ->assign('licensee', 'Henry Döner-Meyer')
-//                    ->assign('company', 'Co-Operation')
-//                    ->assign('date', 'January 11, 2010')
-//                    ->assign('time', 'January 11, 2010')
-//                    ->assign('city', 'Berlin')
-//                    ->assign('country', 'Germany');
-//
-//            $mailMerge->createDocument();
-//
-//            $document = $mailMerge->retrieveDocument('pdf');
-////            die(file_put_contents('document.pdf', $document));
-//            echo file_get_contents('/var/www/html/ZendProject/application/upload/' .$document);
-//            $this->_helper->layout->disableLayout();
-//            $file = '/var/www/html/ZendProject/application/upload/' . $content;
-//            header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-//            header('Content-Disposition: inline; filename=filename.docx');
-//            header('Cache-Control: private, max-age=0, must-revalidate');
-//            header('Pragma: public');
-//            ini_set('zlib.output_compression', '0');
-//            echo file_get_contents($file);
+
         } elseif ($ext == 'avi') {
             $file = '/ZendProject/application/upload/' . $content;
             $this->view->video = $file;
         }
     }
+//    public function addAction() {
+//        $form = new Application_Form_InputForm();
+//        if ($this->getRequest()->isPost()) {
+//            if ($form->isValid($this->getRequest()->getParams())) {
+//                $data = $form->getValues();
+////                if ( $data['course_id'] != '0' || $data['user_id'] != '0') {
+////                    if ($this->model->addMaterial($data)) {
+////                        $this->redirect('materials/index');
+////                    }
+////                } else {
+////                    $this->redirect('materials/add');
+////                }
+////                
+//            }
+//        }
+//        $this->view->form = $form;
+//    }
 
 }

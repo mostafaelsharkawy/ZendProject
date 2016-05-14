@@ -13,7 +13,7 @@ echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/ad
         
         echo '<td>'.$material['type'].'</td>';
 //        echo '<td>'.$material['content_path'].'</td>';
-        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."'> Delete </a></td>";
+        echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialtype/edit/id/".$material['id']."'> Edit </a><a class='btn btn-danger' href='".$this->baseUrl()."/Materialtype/delete/id/".$material['id']."'> Delete </a><a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/index/mtype/".$material['id']."/id/".$this->id."'> Show Material </a></td>";
         echo '</tr>';
         
 	}

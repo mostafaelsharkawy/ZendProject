@@ -11,12 +11,15 @@ class Application_Form_Material extends Zend_Form {
 //	$title->setLabel('Title');
         $title->setAttrib('class', 'form-control');
 
-        $MTS = new Application_Model_DbTable_MaterialType();
-        $mtype = new Zend_Form_Element_Select('material_type_id');
-        $mtype->addMultiOption(0, 'Please select...');
-        foreach ($MTS->fetchAll() as $MT) {
-            $mtype->addMultiOption($MT['id'], $MT['type']);
-        }
+//        $MTS = new Application_Model_DbTable_MaterialType();
+//        $mtype = new Zend_Form_Element_Select('material_type_id');
+//        $mtype->addMultiOption(0, 'Please select...');
+//        foreach ($MTS->fetchAll() as $MT) {
+//            $mtype->addMultiOption($MT['id'], $MT['type']);
+//        }
+        
+        
+        
 
         $courses = new Application_Model_DbTable_Course();
         $courseselect = new Zend_Form_Element_Select('course_id');
@@ -52,7 +55,7 @@ class Application_Form_Material extends Zend_Form {
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('class', 'btn btn-primary');
 
-        $this->addElements(array($id, $title, $approved, $published, $shown, $mtype, $courseselect, $userselect, $submit));
+        $this->addElements(array($id, $title, $approved, $published, $shown,$courseselect, $userselect, $submit));
 //        $this->setAttrib('enctype', 'multipart/form-data');
         
         }

@@ -4,13 +4,16 @@ class MaterialsController extends Zend_Controller_Action {
 
     public function init() {
         /* Initialize action controller here */
-         $this->_helper->layout->setLayout('admin');
+        $this->_helper->layout->setLayout('admin');
         $this->model = new Application_Model_DbTable_Material();
+        $this->model1 = new Application_Model_DbTable_MaterialType();
+
         $this->contentmodel = new Application_Model_DbTable_MaterialContent();
     }
 
     public function indexAction() {
         // action body
+        
         $this->view->materials = $this->model->getAllMaterials();
     }
 
@@ -19,7 +22,7 @@ class MaterialsController extends Zend_Controller_Action {
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
-                if ($data['material_type_id'] != '0' || $data['course_id'] != '0' || $data['user_id'] != '0') {
+                if ($data['course_id'] != '0' || $data['user_id'] != '0') {
                     if ($this->model->addMaterial($data)) {
                         $this->redirect('materials/index');
                     }
@@ -43,9 +46,8 @@ class MaterialsController extends Zend_Controller_Action {
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
-//                $this->contentmodel->addMaterialContent($data['file'],$data['material_id']);
 //                $data->removeElement($data['file']);
-                if ($data['material_type_id'] != '0' || $data['course_id'] != '0' || $data['user_id'] != '0') {
+                if ($data['course_id'] != '0' || $data['user_id'] != '0') {
                     $this->model->editMaterial($id, $data);
                     var_dump($data);
                 }
@@ -54,7 +56,6 @@ class MaterialsController extends Zend_Controller_Action {
         }
         $this->view->id = $id;
         $this->view->form = $form;
-//        $this->view->materials=$content;
     }
 
     public function deleteAction() {
@@ -63,6 +64,5 @@ class MaterialsController extends Zend_Controller_Action {
             $this->redirect('materials/index');
         }
     }
-    
 
 }

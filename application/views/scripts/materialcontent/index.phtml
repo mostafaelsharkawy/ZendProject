@@ -1,9 +1,8 @@
 <h1>Materials Content</h1>
-<br />
-<a href=""></a>
 <?php
-//echo "<td ><a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/add/'>Add Material</a><br/><br/>";
-//	echo "<a href='".$this->baseUrl()."/users/logout/'>Logout </a> <br />";
+//echo $this->id;
+echo "<a class='btn btn-primary' href='".$this->baseUrl()."/Materialcontent/upload/id/".$this->id."/mtype/".$this->mtype."'>Insert Content</a> <br />";
+echo '</br>';
 echo '<table class="table">';
 echo '<tr>';
 echo "<th> Content_path </th>";
@@ -13,7 +12,7 @@ foreach ($this->data as $data) {
 
 //        echo '<tr><td>'.$material['id'].'</td>';
     echo "<tr><td><a href='" . $this->baseUrl() . "/Materialcontent/display/content/" . $data['content_path'] ."'>".$data['content_path']."</a></td>";
-    echo "<td ><a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/delete/id/" . $data['id'] . "'> Delete </a><a class='btn btn-primary' href='" . $this->baseUrl() . "/Materialcontent/edit/id/" . $data['id'] . "'> Edit </a>";
+    echo "<td ><a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/delete/id/" . $data['id'] . "/mid/".$data['material_id']. "'> Delete </a><a class='btn btn-primary' href='" . $this->baseUrl() . "/Materialcontent/edit/id/" . $data['id'] . "'> Edit </a>";
     if ($data['is_locked'] == '1') {
         echo "<a class='btn btn-danger' href='" . $this->baseUrl() . "/Materialcontent/unlock/id/" . $data['id'] ."/mid/".$data['material_id']. "'> Unlock </a>";
     } else {
