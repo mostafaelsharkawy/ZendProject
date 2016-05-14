@@ -24,5 +24,4 @@ $application = new Zend_Application(
 );
 
     
-$application->bootstrap()
-            ->run();
+$application->bootstrap()->run();

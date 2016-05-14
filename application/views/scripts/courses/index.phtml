@@ -1,1 +1,25 @@
+<<<<<<< HEAD
   
+=======
+<h1>Courses</h1>
+<hr>
+<a href="<?php echo $this->baseUrl();?>/courses/add/" class="btn btn-primary">Insert Course</a>
+<br/>
+<br/>
+
+<table class="table" >
+ <tr>
+        <th>Title</th>
+        <th>Action</th>
+ </tr>
+<?php
+    foreach ($this->courses as $courses){
+//  echo "<label> ID: </label>".$courses['id'].'<br />';
+    echo "<tr><td>".$courses['title'].'</td>';
+    echo "<td><a href='".$this->baseUrl()."/courses/edit/id/".$courses['id']."' class='btn btn-primary'> Edit </a> "."<a href='".$this->baseUrl()."/courses/delete/id/".$courses['id']."' class='btn btn-danger'> Delete </a> ";
+//  echo str_repeat('*', 100).'<br />';
+    }
+
+?>
+</table>
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a

@@ -1,0 +1,27 @@
+<?php
+foreach ($this->courses as $course) {
+    echo '<tr><td>' . $course['id'] . '</td>';
+    echo "<td><a  href='" . $this->baseUrl() . "/users/view/id/" . $course['id'] . "'>" . $course['id'] . '</a></td>';
+
+    echo '<td>' . $course['title'] . '</td>';
+}
+?>
+<ul>
+<?php
+foreach ($this->courses as $course) {
+    ?>
+<li style="display: inline;">
+<span>
+    <span>
+        <?php echo "<img width= '200' height='200' alt='img'  src='" . $this->baseUrl() . "/images/temp_img/course-1.jpg'/>"; ?>
+    </span>
+    <span>
+        <h3 class="singCourse_title"><a href="#"><?php echo $course['title'] ?></a></h3>
+    </span>
+
+</span>
+</li>
+<?php
+}
+?>
+</ul>

@@ -10,7 +10,6 @@ echo "<th> Country </th>";
 echo "<th> gender </th>";
 echo "<th> Signature </th>";
 echo "<th> Edit </th>";
-echo "<th> Delete </th>";
 echo "<th> is_Admin </th>";
 echo "<th> is_Baned </th>";
 echo '</tr>';
@@ -22,7 +21,7 @@ foreach ($this->users as $user) {
     echo '<td>' . $user['country'] . '</td>';
     echo '<td>' . $user['gender'] . '</td>';
     echo '<td>' . $user['signature'] . '</td>';
-    echo "<td ><a class='btn btn-primary' href='" . $this->baseUrl() . "/users/edit/id/" . $user['id'] . "'> Edit </a></td><td><a class='btn btn-danger' href='" . $this->baseUrl() . "/users/delete/id/" . $user['id'] . "'> Delete </a></td>";
+    echo "<td ><a class='btn btn-primary' href='" . $this->baseUrl() . "/users/edit/id/" . $user['id'] . "'> Edit </a></td>";
     echo "<td ><a class='btn btn-success' href='" . $this->baseUrl() . "/users/admin/id/" . $user['id'] . "'>" . $user['is_Admin'] . "</a></td>";
     echo "<td ><a class='btn btn-info' href='" . $this->baseUrl() . "/users/banned/id/" . $user['id'] . "'>" . $user['is_Banned'] . "</a></td>";
     echo '</tr>';
