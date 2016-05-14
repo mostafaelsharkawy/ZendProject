@@ -21,10 +21,127 @@
         //  echo $this->headLink()->appendStylesheet('http://fonts.googleapis.com/css?family=Merriweather');
         //  echo $this->headLink()->appendStylesheet('http://fonts.googleapis.com/css?family=Varela');
         ?>  
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+ 
+  </head>
+  <body>    
+=======
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 
     </head>
     <body>    
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  <div class="container">
+            <div class="navbar-header">
+              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <!-- LOGO -->
+              <!-- TEXT BASED LOGO -->
+              <a class="navbar-brand" href="index.html">Online <span>Courses</span></a>              
+              <!-- IMG BASED LOGO  -->
+               <!-- <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>  -->            
+                     
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <!-- <li><a href="course-archive.html">Category</a></li> -->
+
+                 <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+
+
+                    <?php
+                          foreach ($this->categories as $category){
+                            ?>
+                             
+                                  <li><a href="<?php echo $this->baseUrl();?>/userfront/index/id/<?php echo $category['id']?>"><?php echo $category['title'];?></a></li>   
+                                  <?php
+                               
+                          }
+                    ?>
+
+                        <!-- <li><a href="#"></a></li>          -->
+                  </ul>
+                </li>               
+
+                <li><a href="scholarship.html">Profile</a></li>
+                <li><a href="events-archive.html">Edit Profile</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="404.html">404 Page</a></li>
+                    <li><a href="#">Link Two</a></li>
+                    <li><a href="#">Link Three</a></li>               
+                  </ul>
+                </li>               
+                <li><a href="contact.html">Contact</a></li>
+              </ul>           
+            </div><!--/.nav-collapse -->
+          </div>     
+        </nav>  
+      </div>
+      <!-- END MENU -->    
+    </header>
+    <!--=========== END HEADER SECTION ================--> 
+
+    <!--=========== BEGIN SLIDER SECTION ================-->
+    <section id="slider">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="slider_area">
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=========== END SLIDER SECTION ================-->
+    
+      
+ 
+    
+       
+
+    <!--=========== BEGIN WHY US SECTION ================-->
+
+    <section id="whyUs">
+      <!-- Start why us top -->
+      <div class="row">        
+        <div class="col-lg-12 col-sm-12">
+          <div class="whyus_top">
+            <div class="container">
+              <!-- Why us top titile -->
+              
+
+              <!-- End Why us top titile -->
+              <!-- Start Why us top content  -->
+              <div class="row">
+                <?php echo $this->layout()->content; ?>
+               
+              </div>
+              <!-- End Why us top content  -->
+            </div>
+          </div>
+        </div>        
+      </div>
+      <!-- End why us top -->
+=======
         <!-- SCROLL TOP BUTTON -->
         <a class="scrollToTop" href="#"></a>
         <!-- END SCROLL TOP BUTTON -->
@@ -90,6 +207,74 @@
             <div class="container">
                 <div class="row">
                     <?php echo $this->layout()->content; ?>
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+        <!-- SCROLL TOP BUTTON -->
+        <a class="scrollToTop" href="#"></a>
+        <!-- END SCROLL TOP BUTTON -->
+
+        <!--=========== BEGIN HEADER SECTION ================-->
+        <header id="header">
+            <!-- BEGIN MENU -->
+            <div class="menu_area">
+                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  <div class="container">
+                        <div class="navbar-header">
+                            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- LOGO -->
+                            <!-- TEXT BASED LOGO -->
+                            <a class="navbar-brand"  href="<?php echo $this->baseUrl() ?>/materials/index/" >Online <span>Courses</span></a>              
+                            <!-- IMG BASED LOGO  -->
+                             <!-- <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>  -->            
+
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+                                <li class="active"><a href="<?php echo $this->baseUrl() ?>/">Home</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <?php
+                                        foreach ($this->courses as $course) {
+                                            ?>
+                                            <li><a href="#"><?php echo $course['title'] ?></a></li>
+                                            <?php
+                                        }
+                                        ?>                    
+                                    </ul>
+                                </li>      
+                                <li><a href= <?php echo $this->baseUrl() . '/requests/add/'; ?>>Request Material</a></li>
+
+                                <li><a href= <?php echo $this->baseUrl() . '/users/view/id/' . $this->user_id; ?>>Profile</a></li>
+                                <li><a href=<?php echo $this->baseUrl() . '/users/edit/id/' . $this->user_id; ?>>Edit Profile</a></li>
+                                <?php
+                                if ($this->is_admin == "1") {
+                                    ?>  
+                                    <li><a href=<?php echo $this->baseUrl() . '/users/index/'; ?>>Admin panel</a></li>
+                                    <?php
+                                }
+                                ?>  
+                                <li><a href="<?php echo $this->baseUrl() ?>/users/logout/">Logout</a></li>
+                            </ul>           
+                        </div><!--/.nav-collapse -->
+                    </div>     
+                </nav>  
+            </div>
+            <!-- END MENU -->    
+        </header>
+        <!--=========== END HEADER SECTION ================--> 
+
+        <section id="aboutUs">
+            <div class="container">
+                <div class="row">
+                    <?php echo $this->layout()->content; ?>
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 
                 </div>
             </div>
@@ -159,8 +344,13 @@
             <!-- End why us top -->
         </section>
         <!--=========== END WHY US SECTION ================-->
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
         <!--=========== BEGIN STUDENTS TESTIMONIAL SECTION ================-->
         <section id="studentsTestimonial">
             <div class="container">
@@ -304,9 +494,35 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+          </div>
+        </div>
+      </div>
+      <!-- End footer bottom area -->
+    </footer>
+    <!--=========== END FOOTER SECTION ================--> 
+
+  
+
+    <!-- Javascript Files
+    ================================================== -->
+
+    <!-- initialize jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+    <!-- for circle counter -->
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+   <?php echo $this->headScript(); ?> 
+=======
             <!-- End footer bottom area -->
         </footer>
         <!--=========== END FOOTER SECTION ================--> 
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+            <!-- End footer bottom area -->
+        </footer>
+        <!--=========== END FOOTER SECTION ================--> 
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 
     </body>
 </html>

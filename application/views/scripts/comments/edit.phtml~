@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 <div class="container">
     <div class="wrapper">
 <?php 
@@ -8,9 +8,12 @@
 ?>
         
     </div>
-
+=======
 <br /><br />
 <div id="view-content">
 	<p>View script for controller <b>Comments</b> and script/action name <b>edit</b></p>
-
+<<<<<<< HEAD
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 </div>

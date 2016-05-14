@@ -146,16 +146,28 @@
 
                         </li>
                         <li>
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <a href="http://localhost/html/ZendProject/public/materials" ><i class="fa fa-fw fa-arrows-v"></i> Materials </i></a>
+=======
                             <a href="<?php echo $this->baseUrl() ;?>/materials" ><i class="fa fa-fw fa-arrows-v"></i> Materials </i></a>
-
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+                            <a href="<?php echo $this->baseUrl() ;?>/materials" ><i class="fa fa-fw fa-arrows-v"></i> Materials </i></a>
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 
                            
                         </li>
                         <li>
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <a href="http://localhost/html/ZendProject/public/materialtype" ><i class="fa fa-fw fa-arrows-v"></i> Material Type</i></a>
+=======
                             <a href="<?php echo $this->baseUrl() ;?>/materialtype" ><i class="fa fa-fw fa-arrows-v"></i> Material Type</i></a>
-
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
+=======
+                            <a href="<?php echo $this->baseUrl() ;?>/materialtype" ><i class="fa fa-fw fa-arrows-v"></i> Material Type</i></a>
+>>>>>>> cb201f0fdfed9a4cbcbdd1336f293b0f705e3d1a
 
                            
                         </li>
