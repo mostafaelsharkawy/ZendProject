@@ -94,16 +94,17 @@ class CoursesController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
+                if ($data['parent_id'] != '0' && $data['user_id'] != '0') {
                     if ($this->model->addCourses($data)) {
                         $this->redirect('courses/index');
                     }
                 } else {
                     $this->redirect('courses/add');
                 }
-//                
             }
-        $this->view->form = $form;
         }
+        $this->view->form = $form;
+    }
     
 
     public function editAction() {

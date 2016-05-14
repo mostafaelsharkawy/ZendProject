@@ -26,21 +26,10 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
 
-
-          <actionMethod actionName="add"/>
-          <actionMethod actionName="show"/>
-
-
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
-
-
-        <formFile formName="Comment"/>
-
         <formFile formName="Request"/>
-
-
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -54,9 +43,10 @@
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
-
+<<<<<<< HEAD
       <!-- <servicesDirectory enabled="false"/> -->
-
+=======
+>>>>>>> 3015b7078c7ef3efb5994fc85e09eced99e1c875
       <viewsDirectory>
         <viewScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
@@ -89,14 +79,6 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Comments">
             <viewScriptFile forActionName="delete"/>
-
-
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Comments">
-            <viewScriptFile forActionName="add"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Comments">
-            <viewScriptFile forActionName="show"/>
 
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

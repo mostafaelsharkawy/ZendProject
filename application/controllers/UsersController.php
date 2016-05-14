@@ -130,7 +130,6 @@ class UsersController extends Zend_Controller_Action {
                     Zend_Mail::setDefaultTransport($transport);
 
 
-
                     $mail = new Zend_Mail();
                     $content = "you are welcome in our website ... your username :$this->getRequest()->getParam('username')
                           , your signatura:  $this->getRequest()->getParam('signature'), your password :$this->getRequest()->getParam('password')";
@@ -150,7 +149,6 @@ class UsersController extends Zend_Controller_Action {
                         $this->redirect('users/login');
                     }
                    
-
                 }
             }
         }
@@ -220,9 +218,7 @@ class UsersController extends Zend_Controller_Action {
         $this->redirect('users/login');
     }
 
-
 #show user profile 
-
 
     public function viewAction() {
         $this->_helper->layout->setLayout('new');

@@ -8,8 +8,8 @@ class Application_Model_DbTable_MaterialContent extends Zend_Db_Table_Abstract {
         return $this->fetchAll()->toArray();
     }
 
-    function getMaterialContentById($id) {
-        return $this->fetchAll($this->select()->where('material_id=?', $id));
+    function getMaterialContentById($id,$mtype) {
+        return $this->fetchAll($this->select()->where('material_id=?', $id)->where('material_type_id=?',$mtype));
     }
 
     function getMaterialbyindex($id) {
@@ -64,11 +64,17 @@ class Application_Model_DbTable_MaterialContent extends Zend_Db_Table_Abstract {
     }
 
     //There will be modifications
-    function addMaterialContent($materialContentInfo, $id) {
+    function addMaterialContent($materialContentInfo, $id,$mtype) {
         $row = $this->createRow();
 //        print_r(addMaterialContent);
+        var_dump($materialContentInfo);
+//        echo $materialContentInfo['mtype'];
+//        var_dump($row)
         $row->content_path = $materialContentInfo['file'];
         $row->material_id = $id;
+        $row->material_type_id=$mtype;
+        $row->is_locked='0';
+        $row->is_show='0';
 
         return $row->save();
     }

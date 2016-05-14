@@ -23,9 +23,7 @@ class RequestsController extends Zend_Controller_Action {
 
     public function addAction() {
         // action body
-
         $this->_helper->layout->setLayout('new');
-
         $form = new Application_Form_Request();
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {

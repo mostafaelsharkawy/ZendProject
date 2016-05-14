@@ -20,8 +20,10 @@ class MaterialtypeController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $id = $this->getRequest()->getParam('id');
         // action body
         $this->view->materials = $this->model1->getAllMaterialtypes();
+        $this->view->id=$id;
         // $this->render('index');
     }
     public function showAction()
@@ -31,13 +33,16 @@ class MaterialtypeController extends Zend_Controller_Action
     }
     public function deleteAction() {
         $id = $this->getRequest()->getParam('id');
+        $mid = $this->getRequest()->getParam('mid');
         if ($this->model1->deleteMaterialType($id)) {
-            $this->redirect('materialtype/show');
+            $this->redirect('materialtype/index/id/'.$id.'/mid/'.$mid);
         }
     }
 
     function editAction() {
-        $id = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('id');//material id
+        $mid = $this->getRequest()->getParam('mid'); //material type
+//        die($mid);
         $Type = $this->model1->getMaterialTypeById($id);
         $form = new Application_Form_MaterialType();
         $form->type->setValidators(array());
@@ -46,13 +51,13 @@ class MaterialtypeController extends Zend_Controller_Action
             if ($form->isValid($this->getRequest()->getParams())) {
                 $data = $form->getValues();
                 $this->model1->editMaterialType($id, $data);
-                $this->redirect('materialtype/show');
+                $this->redirect('materialtype/index/id/'.$mid.'/mid/'.$id);
             }
         }
         $this->view->form = $form;
     }
     public function addAction() {
-
+        $id = $this->getRequest()->getParam('id');
         $form = new Application_Form_MaterialType();
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
@@ -64,7 +69,7 @@ class MaterialtypeController extends Zend_Controller_Action
                     )
                 ));
                 if($this->model1->addMaterialType($data)){
-                    $this->redirect('materialtype/show');
+                    $this->redirect('materialtype/index/id/'.$id);
                 }
             }
         }

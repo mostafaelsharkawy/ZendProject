@@ -85,5 +85,4 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $view->headScript()->appendFile($view->baseUrl() . '/js/plugins/morris/raphael.min.js');
     }
 
-
 }

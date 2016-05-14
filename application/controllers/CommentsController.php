@@ -4,7 +4,8 @@ class CommentsController extends Zend_Controller_Action {
 
     private $model = null;
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
         $this->model = new Application_Model_DbTable_Comment();
         //  $this->view->user_id=$authorization->getStorage()->read()->id;
@@ -20,7 +21,6 @@ class CommentsController extends Zend_Controller_Action {
 
     public function indexAction() {
         // action body
-
         $this->_helper->layout->setLayout('admin');
 
         $this->view->comments = $this->model->listComments();
@@ -120,6 +120,7 @@ class CommentsController extends Zend_Controller_Action {
         $this->view->user = $admin[0];
         $this->view->material_id = $id;
         $this->view->comments = $this->model->getCommentsByMaterialId($id);
+
     }
 
 }
