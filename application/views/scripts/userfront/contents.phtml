@@ -1,0 +1,37 @@
+
+<div class="row">
+                <div class="col-lg-12 col-md-12"> 
+                  <div class="title_area">
+                    <h2 class="title_two">material contents</h2>
+                    <span></span> 
+                  </div>
+                </div>
+              </div>
+<table class="table">
+      
+      <tbody>
+      <?php
+	foreach ($this->contents as $c) {
+		# code...
+		?>
+    
+        <tr>
+          <td> <a href="<?php echo $this->baseUrl();?>/userfront/single/id/<?php echo $c['id'];?>"><?php echo $c['content_path'];?></a></td>
+        </tr>
+     
+		<!-- <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="single_whyus_top wow fadeInUp">
+                    <div class="whyus_icon">
+                    <a href="<?php echo $this->baseUrl();?>/userfront/contents/id/<?php echo $c['id'];?>">
+                      <span style="font-size:30px;">
+                      	 <?php echo $c['content_path'];?>
+                      </span>
+                      </a>
+                    </div>
+                    </div>
+                  </div> -->
+		<?php
+	}
+?>
+ </tbody>
+    </table>

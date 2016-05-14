@@ -20,6 +20,7 @@
         echo $this->headLink()->appendStylesheet('http://fonts.googleapis.com/css?family=Merriweather');
         echo $this->headLink()->appendStylesheet('http://fonts.googleapis.com/css?family=Varela');
         ?>  
+
  
   </head>
   <body>    
@@ -51,7 +52,27 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="course-archive.html">Category</a></li>
+                <!-- <li><a href="course-archive.html">Category</a></li> -->
+
+                 <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+
+
+                    <?php
+                          foreach ($this->categories as $category){
+                            ?>
+                             
+                                  <li><a href="<?php echo $this->baseUrl();?>/userfront/index/id/<?php echo $category['id']?>"><?php echo $category['title'];?></a></li>   
+                                  <?php
+                               
+                          }
+                    ?>
+
+                        <!-- <li><a href="#"></a></li>          -->
+                  </ul>
+                </li>               
+
                 <li><a href="scholarship.html">Profile</a></li>
                 <li><a href="events-archive.html">Edit Profile</a></li>
                 <li class="dropdown">
@@ -77,57 +98,20 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="slider_area">
-            <!-- Start super slider -->
-            <div id="slides">
-              <ul class="slides-container">                          
-                <li>
-                  <img src="http://localhost/ZendProject/public/images/temp_img/slider/2.jpg" alt="img">
-                   <div class="slider_caption">
-                    <h2>Largest & Beautiful University</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                    <a class="slider_btn" href="#">Know More</a>
-                  </div>
-                  </li>
-                <!-- Start single slider-->
-                <li>
-                  <img src="img/slider/3.jpg" alt="img">
-                   <div class="slider_caption slider_right_caption">
-                    <h2>Better Education Environment</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search</p>
-                    <a class="slider_btn" href="#">Know More</a>
-                  </div>
-                </li>
-                <!-- Start single slider-->
-                <li>
-                  <img src="http://localhost/ZendProject/public/images/temp_img/slider/4.jpg" alt="img">
-                   <div class="slider_caption">
-                    <h2>Find out you in better way</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search</p>
-                    <a class="slider_btn" href="#">Know More</a>
-                  </div>
-                </li>
-              </ul>
-              <nav class="slides-navigation">
-                <a href="#" class="next"></a>
-                <a href="#" class="prev"></a>
-              </nav>
-            </div>
+            
           </div>
         </div>
       </div>
     </section>
     <!--=========== END SLIDER SECTION ================-->
     
-      <section id="aboutUs">
-      <div class="container">
-        <div class="row">
-     <?php echo $this->layout()->content; ?>
+      
+ 
     
-        </div>
-      </div>
-      </section>
+       
 
     <!--=========== BEGIN WHY US SECTION ================-->
+
     <section id="whyUs">
       <!-- Start why us top -->
       <div class="row">        
@@ -135,53 +119,13 @@
           <div class="whyus_top">
             <div class="container">
               <!-- Why us top titile -->
-              <div class="row">
-                <div class="col-lg-12 col-md-12"> 
-                  <div class="title_area">
-                    <h2 class="title_two">Why Us</h2>
-                    <span></span> 
-                  </div>
-                </div>
-              </div>
+              
+
               <!-- End Why us top titile -->
               <!-- Start Why us top content  -->
               <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                  <div class="single_whyus_top wow fadeInUp">
-                    <div class="whyus_icon">
-                      <span class="fa fa-desktop"></span>
-                    </div>
-                    <h3>Technology</h3>
-                    <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                  <div class="single_whyus_top wow fadeInUp">
-                    <div class="whyus_icon">
-                      <span class="fa fa-users"></span>
-                    </div>
-                    <h3>Best Tutor</h3>
-                    <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                  <div class="single_whyus_top wow fadeInUp">
-                    <div class="whyus_icon">
-                      <span class="fa fa-flask"></span>
-                    </div>
-                    <h3>Practical Training</h3>
-                    <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                  <div class="single_whyus_top wow fadeInUp">
-                    <div class="whyus_icon">
-                      <span class="fa fa-support"></span>
-                    </div>
-                    <h3>Support</h3>
-                    <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                  </div>
-                </div>
+                <?php echo $this->layout()->content; ?>
+               
               </div>
               <!-- End Why us top content  -->
             </div>
@@ -531,7 +475,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
     <!-- for circle counter -->
     <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
-
+   <?php echo $this->headScript(); ?> 
 
   </body>
 </html>

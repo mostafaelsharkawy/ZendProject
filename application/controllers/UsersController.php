@@ -102,6 +102,7 @@ class UsersController extends Zend_Controller_Action {
     public function addAction() {
 
         $form = new Application_Form_User();
+
         $form->removeElement('photo');
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($this->getRequest()->getParams())) {
@@ -136,7 +137,9 @@ class UsersController extends Zend_Controller_Action {
                 }
             }
         }
+
         $this->view->form = $form;
+         
     }
 
     public function loginAction() {

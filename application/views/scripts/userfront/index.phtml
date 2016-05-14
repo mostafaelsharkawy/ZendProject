@@ -1,0 +1,33 @@
+
+
+<div class="row">
+                <div class="col-lg-12 col-md-12"> 
+                  <div class="title_area">
+                    <h2 class="title_two">Courses</h2>
+                    <span></span> 
+                  </div>
+                </div>
+              </div>
+  <?php
+            foreach($this->courses as $course){
+  ?>
+     
+                
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                  <div class="single_whyus_top wow fadeInUp">
+                    <div class="whyus_icon">
+                    <a href="<?php echo $this->baseUrl();?>/userfront/types/id/<?php echo $course['id'];?>">
+                      <span style="font-size:30px;">
+                      	 <?php echo $course['title'];?>
+                      </span>
+                      </a>
+                    </div>
+                    </div>
+                  </div>
+               
+               
+               
+                          <?php     
+                          }
+                    ?>
+

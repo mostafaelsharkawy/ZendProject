@@ -11,6 +11,7 @@ class Application_Model_DbTable_MaterialContent extends Zend_Db_Table_Abstract {
     function getMaterialContentById($id) {
         return $this->fetchAll($this->select()->where('material_id=?', $id));
     }
+    
 
     function getMaterialbyindex($id) {
         return $this->find($id)->toArray();

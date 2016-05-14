@@ -14,10 +14,14 @@ class Application_Model_DbTable_Material extends Zend_Db_Table_Abstract
     function getMaterials($course_id){
 		return $this->fetchAll($this->select()->where('course_id=?',$course_id));
 	}
-        
-        function getmaterialbyid($id) {
-            return $this->find($id)->toArray();
-        }
+
+	function getMaterialbytypecourse($course_id,$type_id){
+		return $this->fetchAll($this->select()->where('course_id=?',$course_id)->where('material_type_id',$type_id));
+	}
+
+    function getmaterialbyid($id) {
+        return $this->find($id)->toArray();
+    }
 
 	function editMaterial($id,$materialInfo){
 		$this->update($materialInfo, 'id='.$id);

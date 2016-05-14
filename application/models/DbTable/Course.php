@@ -8,6 +8,11 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 		return $this->fetchAll($this->select()->where('parent_id IS NULL'));
 	}
 
+	function getOneCourse($id){
+		return $this->find($id)->toArray();
+		
+	}
+
 	function editCategories($id,$categoryInfo){
 		$this->update($categoryInfo, "id=$id");
 	}
@@ -25,6 +30,10 @@ class Application_Model_DbTable_Course extends Zend_Db_Table_Abstract
 
 	function getCourses(){
 		return $this->fetchAll($this->select()->where('parent_id !=?',"NULL"));
+	}
+
+	function getCatCourses($id){
+		return $this->fetchAll($this->select()->where('parent_id =?',$id));
 	}
 
 	function editCourses($id,$coursesInfo){
