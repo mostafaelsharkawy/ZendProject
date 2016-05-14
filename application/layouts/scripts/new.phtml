@@ -65,12 +65,17 @@
                                         ?>                    
                                     </ul>
                                 </li>      
-                                 <li><a href= <?php echo $this->baseUrl() . '/requests/add/'; ?>>Request Material</a></li>
+                                <li><a href= <?php echo $this->baseUrl() . '/requests/add/'; ?>>Request Material</a></li>
 
-                                <li><a href= <?php echo $this->baseUrl() . '/users/view/id/'. $this->user_id; ?>>Profile</a></li>
-                                <li><a href=<?php echo $this->baseUrl() . '/users/edit/id/'. $this->user_id; ?>>Edit Profile</a></li>
-                                         
-
+                                <li><a href= <?php echo $this->baseUrl() . '/users/view/id/' . $this->user_id; ?>>Profile</a></li>
+                                <li><a href=<?php echo $this->baseUrl() . '/users/edit/id/' . $this->user_id; ?>>Edit Profile</a></li>
+                                <?php
+                                if ($this->is_admin == "1") {
+                                    ?>  
+                                    <li><a href=<?php echo $this->baseUrl() . '/users/index/'; ?>>Admin panel</a></li>
+                                    <?php
+                                }
+                                ?>  
                                 <li><a href="<?php echo $this->baseUrl() ?>/users/logout/">Logout</a></li>
                             </ul>           
                         </div><!--/.nav-collapse -->
@@ -84,7 +89,7 @@
         <section id="aboutUs">
             <div class="container">
                 <div class="row">
-<?php echo $this->layout()->content; ?>
+                    <?php echo $this->layout()->content; ?>
 
                 </div>
             </div>
@@ -181,7 +186,7 @@
                                         <div class="stsTestimonial_msgbox">
                                             <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
                                         </div>
-<?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author1.jpg'/>"; ?>
+                                        <?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author1.jpg'/>"; ?>
                                         <div class="stsTestimonial_content">
                                             <h3>Yasmin Mohamed</h3>                      
                                             <span>Ex. Student</span>
@@ -196,7 +201,7 @@
                                         <div class="stsTestimonial_msgbox">
                                             <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book.scrambled it to make a type specimen book</p>
                                         </div>
-<?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author2.jpg'/>"; ?>
+                                        <?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author2.jpg'/>"; ?>
                                         <div class="stsTestimonial_content">
                                             <h3>Sherif Elkhaiat</h3>                      
                                             <span>Ex. Student</span>
@@ -211,7 +216,7 @@
                                         <div class="stsTestimonial_msgbox">
                                             <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
                                         </div>
-<?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author3.jpg'/>"; ?>
+                                        <?php echo "<img alt='img' class='stsTesti_img'  src='" . $this->baseUrl() . "/images/temp_img/author3.jpg'/>"; ?>
                                         <div class="stsTestimonial_content">
                                             <h3>Samar Khalil</h3>                      
                                             <span>Ex. Student</span>

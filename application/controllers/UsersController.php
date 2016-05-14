@@ -11,6 +11,7 @@ class UsersController extends Zend_Controller_Action {
         $authorization = Zend_Auth::getInstance();
         if ($authorization->hasIdentity()) {
             $this->view->user_id = Zend_Auth::getInstance()->getStorage()->read()->id;
+            $this->view->is_admin=Zend_Auth::getInstance()->getStorage()->read()->is_Admin;
         }
 
 
@@ -196,10 +197,10 @@ class UsersController extends Zend_Controller_Action {
                   $this->redirect('/');
                   }
                  */
-                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Banned == "1") {
+                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Banned == 1) {
                     $this->redirect('users/login');
                 }
-                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Admin == "1") {
+                if (!Zend_Auth::getInstance()->getStorage()->read()->is_Admin == 1) {
                     $this->redirect('/');
                 }  else {
                      $this->redirect('users/index');
